@@ -24,15 +24,19 @@ class BrowserUtils:
         self.driver_name = local_config.default_driver
 
     def get_driver(self):
+        """打开驱动"""
         if self.driver_name.lower() == "chrome":
+            logger.info("当前正在打开：%s" % self.driver_name)
             return self.__get_chrome_driver()
         elif self.driver_name.lower() == 'firefox':
+            logger.info("当前正在打开：%s" % self.driver_name)
             return self.__get_firefox_driver()
         elif self.driver_name.lower() == "edge":
+            logger.info("当前正在打开：%s" % self.driver_name)
             return self.__get_edge_driver()
 
     def __get_chrome_driver(self):
-        '''去除谷歌浏览器控制白条'''
+        """去除谷歌浏览器控制白条"""
         chrome_options = Options()
         chrome_options.add_argument('--disable-gpu')  # 谷歌文档提到需要加上这个属性来规避bug
         chrome_options.add_argument('lang=zh_CN.UTF-8')  # 设置默认编码为utf-8
