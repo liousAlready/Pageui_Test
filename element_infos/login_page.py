@@ -17,13 +17,6 @@ from common.base_page import *
 class LoginPage(BasePage):  # 继承页面类
 
     def __init__(self, driver):
-        # self.driver.get(
-        #     "http://47.107.178.45/zentao/www/index.php?m=user&f=login&referer=L3plbnRhby93d3cvaW5kZXgucGhwP209dXNlciZmPWxvZ2lueg=="
-        # )
-        # logger.info("打开网站")
-        # self.driver.maximize_window()
-        # self.driver.implicitly_wait(10)
-
         # 驱动的处理
         # 1.继承父类  子类构造方法需要显示调用父类的构造
         super().__init__(driver)
