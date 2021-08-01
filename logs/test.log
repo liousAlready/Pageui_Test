@@ -4,3 +4,29 @@ logs:2021-08-01 11:04:22,313 - login_page.py[line:38] - INFO: 输入密码: newd
 logs:2021-08-01 11:04:22,415 - login_page.py[line:43] - INFO: 点击登录按钮
 logs:2021-08-01 11:04:26,296 - main_page.py[line:50] - INFO: 获取用户名称：测试人员2
 logs:2021-08-01 11:04:26,301 - main_page.py[line:34] - INFO: 获取公司名称：新梦想项目管理平台
+logs:2021-08-01 14:38:23,280 - login_page.py[line:26] - INFO: 打开网站
+logs:2021-08-01 14:38:23,423 - login_page.py[line:44] - INFO: 输入账号: test02
+logs:2021-08-01 14:38:23,431 - base_page.py[line:69] - INFO: 元素识别成功：//*[@name="account"]
+logs:2021-08-01 14:48:25,210 - base_page.py[line:24] - INFO: 打开url：http://47.107.178.45/zentao/www/index.php?m=user&f=login&referer=L3plbnRhby93d3cvaW5kZXgucGhwP209dXNlciZmPWxvZ2lueg==
+logs:2021-08-01 14:48:25,359 - base_page.py[line:28] - INFO: 浏览器最大化...
+logs:2021-08-01 14:48:25,359 - login_page.py[line:48] - INFO: 输入账号: test01
+logs:2021-08-01 14:48:25,369 - base_page.py[line:69] - INFO: 元素识别成功：//*[@name="account"]
+logs:2021-08-01 14:51:20,243 - base_page.py[line:24] - INFO: 打开url：http://47.107.178.45/zentao/www/index.php?m=user&f=login&referer=L3plbnRhby93d3cvaW5kZXgucGhwP209dXNlciZmPWxvZ2lueg==
+logs:2021-08-01 14:51:20,392 - base_page.py[line:28] - INFO: 浏览器最大化...
+logs:2021-08-01 14:51:20,392 - login_page.py[line:47] - INFO: 输入账号: test01
+logs:2021-08-01 14:51:20,401 - base_page.py[line:71] - INFO: 元素识别成功：//*[@name="account"]
+logs:2021-08-01 14:58:38,896 - base_page.py[line:24] - INFO: 打开url：http://47.107.178.45/zentao/www/index.php?m=user&f=login&referer=L3plbnRhby93d3cvaW5kZXgucGhwP209dXNlciZmPWxvZ2lueg==
+logs:2021-08-01 14:58:42,673 - base_page.py[line:28] - INFO: 浏览器最大化...
+logs:2021-08-01 14:58:52,372 - login_page.py[line:47] - INFO: 输入账号: test01
+logs:2021-08-01 14:59:36,131 - base_page.py[line:70] - INFO: 元素识别成功：//*[@name="account"]
+logs:2021-08-01 15:01:07,962 - base_page.py[line:24] - INFO: 打开url：http://47.107.178.45/zentao/www/index.php?m=user&f=login&referer=L3plbnRhby93d3cvaW5kZXgucGhwP209dXNlciZmPWxvZ2lueg==
+logs:2021-08-01 15:01:08,111 - base_page.py[line:28] - INFO: 浏览器最大化...
+logs:2021-08-01 15:01:08,111 - login_page.py[line:47] - INFO: 输入账号: test01
+logs:2021-08-01 15:01:08,123 - base_page.py[line:70] - INFO: 元素识别成功：//*[@name="account"]
+logs:2021-08-01 15:01:08,182 - base_page.py[line:79] - INFO: 输入框输入内容：test01 , 识别输入框：//*[@name="account"]
+logs:2021-08-01 15:01:08,183 - login_page.py[line:51] - INFO: 输入密码: newdream123
+logs:2021-08-01 15:01:08,191 - base_page.py[line:70] - INFO: 元素识别成功：//*[@name="password"]
+logs:2021-08-01 15:01:08,252 - base_page.py[line:79] - INFO: 输入框输入内容：newdream123 , 识别输入框：//*[@name="password"]
+logs:2021-08-01 15:01:08,263 - base_page.py[line:70] - INFO: 元素识别成功：//*[@id="submit"]
+logs:2021-08-01 15:01:08,310 - base_page.py[line:85] - INFO: 识别元素进行点击操作：//*[@id="submit"]
+logs:2021-08-01 15:01:08,310 - login_page.py[line:56] - INFO: 点击登录按钮
