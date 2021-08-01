@@ -27,7 +27,3 @@ class LogUtils:
 
 
 logger = LogUtils().get_logger()
-
-# if __name__ == "__main__":
-#     log = LogUtils().get_logger()
-#     print(log.info("ca"))

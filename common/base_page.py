@@ -59,11 +59,11 @@ class BasePage:
             locator_type = By.XPATH
         elif locator_type == "id":
             locator_type = By.ID
-        elif locator_type == "class_name":
+        elif locator_type == "class":
             locator_type = By.CLASS_NAME
-        elif locator_type == "link_test":
+        elif locator_type == "linktext":
             locator_type = By.LINK_TEXT
-        elif locator_type == "partial_link":
+        elif locator_type == "partiallink":
             locator_type = By.PARTIAL_LINK_TEXT
         element = WebDriverWait(self.driver, timeout=locator_timeout).until(
             lambda x: x.find_element(locator_type, locator_value))
@@ -83,4 +83,3 @@ class BasePage:
         element = self.find_element(element_infos)
         element.click()
         logger.info("识别元素进行点击操作：%s" % element_infos["locator_value"])
-

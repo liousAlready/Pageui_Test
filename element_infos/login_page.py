@@ -6,10 +6,10 @@
 # @Software: PyCharm
 
 import os
-from selenium import webdriver
-from selenium.webdriver.common.by import By
 from common.log_utils import logger
 from common.base_page import *
+from common.element_data_utils import *
+from common.browser_utils import *
 
 
 #  页面是类  控件：属性 控件操作：方法
@@ -23,18 +23,11 @@ class LoginPage(BasePage):  # 继承页面类
         # # 2.父类方法.构造方法(self,driver)
         # BasePage.__init__(self, driver)
 
-        self.username_input_box = {"element_name": "用户名输入框",
-                                   "locator_type": "xpath",
-                                   "locator_value": '//*[@name="account"]',
-                                   "timeout": 5}
-        self.password_input_box = {"element_name": "密码输入框",
-                                   "locator_type": "xpath",
-                                   "locator_value": '//*[@name="password"]',
-                                   "timeout": 5}
-        self.submit = {"element_name": "登录按钮",
-                       "locator_type": "xpath",
-                       "locator_value": '//*[@id="submit"]',
-                       "timeout": 5}
+        # 创建excel读取对象，通过字典来进行数据读取
+        elements = ElementDataUtils('login_page').get_element_infos()
+        self.username_input_box = elements["username_inputbox"]
+        self.password_input_box = elements["password_inputbox"]
+        self.submit = elements["login_button"]
 
     def input_username(self, username):  # 方法 --》 控件的操作
         logger.info("输入账号: %s" % username)
@@ -53,12 +46,11 @@ if __name__ == "__main__":
     # 页面= 属性+方法
     # 属性命名 = 名字+类型
     # 操作命名 = 操作+元素对象
-    current_path = os.path.dirname(__file__)
-    driver_path = os.path.join(current_path, '../webdriver/chromedriver')
-    driver = webdriver.Chrome(executable_path=driver_path)
+
+    driver = BrowserUtils().get_driver()
     login_page = LoginPage(driver)
-    login_page.open_url(
-        "http://47.107.178.45/zentao/www/index.php?m=user&f=login&referer=L3plbnRhby93d3cvaW5kZXgucGhwP209dXNlciZmPWxvZ2lueg==")
+
+    login_page.open_url(local_config.get_url)
     login_page.set_window_max()
     login_page.input_username('test01')
     login_page.input_password('newdream123')
