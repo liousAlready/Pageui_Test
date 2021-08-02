@@ -19,22 +19,22 @@ class ConfigUtils:
 
     @property
     def get_url(self):
-        url = self.cfg.get("default", "LOGIN_URL")
+        url = self.cfg.get("DEFAULT", "LOGIN_URL")
         return url
 
     @property
     def get_driver_path(self):
-        url = self.cfg.get("driver_path", "DRIVER_PATH")
+        url = self.cfg.get("DRIVER_PATH", "DRIVER_PATH")
         return url
 
     @property
     def get_logs_path(self):
-        logs_path = self.cfg.get("logs", "LOGS_PATH")
+        logs_path = self.cfg.get("LOGS", "LOGS_PATH")
         return logs_path
 
     @property
     def default_driver(self):
-        default_driver = self.cfg.get("driver", "DEFAULT_DRIVER")
+        default_driver = self.cfg.get("DRIVER", "DEFAULT_DRIVER")
         return default_driver
 
 

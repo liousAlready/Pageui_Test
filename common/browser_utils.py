@@ -48,12 +48,12 @@ class BrowserUtils:
         return driver
 
     def __get_firefox_driver(self):
-        firefox_driver_path = os.path.join(self.driver_path, 'geckodriver')
+        firefox_driver_path = os.path.join(self.driver_path, 'geckodriver.exe')
         driver = webdriver.Firefox(executable_path=firefox_driver_path)
         return driver
 
     def __get_edge_driver(self):
-        edge_driver_path = os.path.join(self.driver_path, 'edge')
+        edge_driver_path = os.path.join(self.driver_path, 'msedgedriver.exe')
         driver = webdriver.Edge(executable_path=edge_driver_path)
         return driver
 
