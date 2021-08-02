@@ -14,13 +14,13 @@ from common.log_utils import logger
 # 浏览器类，用来提供driver驱动
 
 current_path = os.path.dirname(__file__)
-driver_path = os.path.join(current_path, ".." + local_config.get_driver_path)
+driver_path = os.path.join(current_path, "..", local_config.get_driver_path)
 
 
 class BrowserUtils:
 
-    def __init__(self, driver_path=driver_path):
-        self.driver_path = driver_path
+    def __init__(self, path=driver_path):
+        self.driver_path = path
         self.driver_name = local_config.default_driver
 
     def get_driver(self):

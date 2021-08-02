@@ -14,8 +14,8 @@ excel_path = os.path.join(current_path, '../element_info_datas/element_info_data
 
 
 class ElementDataUtils:
-    def __init__(self, sheet_name, excel_path=excel_path):
-        self.work_book = xlrd.open_workbook(excel_path)
+    def __init__(self, sheet_name, path=excel_path):
+        self.work_book = xlrd.open_workbook(path)
         self.sheet = self.work_book.sheet_by_name(sheet_name)
         self.row_count = self.sheet.nrows
 
