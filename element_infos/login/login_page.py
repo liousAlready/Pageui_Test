@@ -24,7 +24,7 @@ class LoginPage(BasePage):  # 继承页面类
         # BasePage.__init__(self, driver)
 
         # 创建excel读取对象，通过字典来进行数据读取
-        elements = ElementDataUtils('login_page').get_element_infos()
+        elements = ElementDataUtils('login').get_element_infos('login_page')
         self.username_input_box = elements["username_inputbox"]
         self.password_input_box = elements["password_inputbox"]
         self.submit = elements["login_button"]

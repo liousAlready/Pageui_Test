@@ -37,10 +37,14 @@ class ConfigUtils:
         default_driver = self.cfg.get("DRIVER", "DEFAULT_DRIVER")
         return default_driver
 
+    @property
+    def time_out(self):
+        time_out = self.cfg.get("DEFAULT", "TIME_OUT")
+        return float(time_out)
+
 
 local_config = ConfigUtils()
 
 if __name__ == "__main__":
-    print(local_config.get_url)
-    print(local_config.get_driver_path)
-    print(local_config.default_driver)
+    print(type(local_config.time_out))
+    print(local_config.time_out)

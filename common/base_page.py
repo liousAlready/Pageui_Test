@@ -5,8 +5,11 @@
 # @File    : base_page.py
 # @Software: PyCharm
 
+import time
+from selenium import webdriver
 from selenium.webdriver.common.by import By
 from common.log_utils import logger
+from common.config_utils import local_config
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.keys import Keys
@@ -18,7 +21,7 @@ from selenium.webdriver.common.keys import Keys
 class BasePage:
 
     def __init__(self, driver):
-        self.driver = driver
+        self.driver = webdriver.Chrome()  # driver
 
     def open_url(self, url):
         self.driver.get(url)
@@ -49,6 +52,17 @@ class BasePage:
     def forward(self):
         self.driver.forward()
         logger.info("前进一页...")
+
+    # 　封装时间
+    def wait(self, seconds=local_config.time_out):
+        """固定等待--加入默认值，如果没有超市时间，则默认等待五秒钟"""
+        time.sleep(seconds)
+        logger.info("休息一会儿把: %s" % seconds)
+
+    def implicitly_wait(self, seconds=local_config.time_out):
+        """隐式等待"""
+        self.driver.implicitly_wait(seconds)
+        logger.info("等待时间: %s" % seconds)
 
     #  元素识别 通过分离处理的元素识别字典信息，返回一个元素
     # self.username_input_box = self.driver.find_element(By.XPATH, '//*[@name="account"]')
@@ -117,6 +131,7 @@ class BasePage:
     # 跳转框架 1.iframe ==> id/name跳转  2.frame元素对象
     # 思路一
     def switch_to_iframe(self, element_info):
+        self.wait()
         element = self.find_element(element_info)
         self.driver.switch_to.frame(element)
         logger.info("现在跳转框架：%s" % element_info["locator_value"])
@@ -126,6 +141,7 @@ class BasePage:
         self.driver.switch_to.frame(id_or_name)
 
     def switch_to_frame_by_element(self, element_info):
+        self.wait()
         element = self.find_element(element_info)
         self.driver.switch_to.frame(element)
 
@@ -133,6 +149,7 @@ class BasePage:
     def switch_to_iframe1(self, **element_dict):
         # ＊＊代表字典  switch_to_iframe_01(id=iframe_id)
         # element = (element_info)
+        self.wait(3)
         if 'id' in element_dict.keys():
             self.driver.switch_to.frame(element_dict['id'])
         elif 'name' in element_dict.keys():

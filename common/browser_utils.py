@@ -10,7 +10,6 @@ from selenium import webdriver
 from common.config_utils import *
 from selenium.webdriver.chrome.options import Options
 from common.log_utils import logger
-from element_infos.login_page import LoginPage
 
 # 浏览器类，用来提供driver驱动
 
@@ -58,7 +57,7 @@ class BrowserUtils:
         driver = webdriver.Edge(executable_path=edge_driver_path)
         return driver
 
-    def __get_remoto_driver(self):  # selenium支持分布式 grid ==》配置（你自己的代码编写、对方电脑的配置）
+    def __get_remove_to_driver(self):  # selenium支持分布式 grid ==》配置（你自己的代码编写、对方电脑的配置）
         pass
 
 

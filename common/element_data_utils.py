@@ -7,6 +7,7 @@
 
 import os
 import xlrd
+from common.config_utils import local_config
 
 #  元素识别信息读取工具类
 current_path = os.path.dirname(__file__)
@@ -14,23 +15,28 @@ excel_path = os.path.join(current_path, '../element_info_datas/element_info_data
 
 
 class ElementDataUtils:
-    def __init__(self, sheet_name, path=excel_path):
+    def __init__(self, module_name,  path=excel_path):
         self.work_book = xlrd.open_workbook(path)
-        self.sheet = self.work_book.sheet_by_name(sheet_name)
+        self.sheet = self.work_book.sheet_by_name(module_name)
         self.row_count = self.sheet.nrows
 
-    def get_element_infos(self):
+    def get_element_infos(self,page_name):
         element_infos = {}
         for i in range(1, self.row_count):
-            element_info = {}
-            element_info['element_name'] = self.sheet.cell_value(i, 0)
-            element_info['locator_type'] = self.sheet.cell_value(i, 3)
-            element_info['locator_value'] = self.sheet.cell_value(i, 4)
-            element_info['timeout'] = self.sheet.cell_value(i, 5)
-            element_infos[self.sheet.cell_value(i, 0)] = element_info
+            if self.sheet.cell_value(i, 2) == page_name:
+                element_info = {}
+                element_info['element_name'] = self.sheet.cell_value(i, 1)
+                element_info['locator_type'] = self.sheet.cell_value(i, 3)
+                element_info['locator_value'] = self.sheet.cell_value(i, 4)
+                timen_out_value = self.sheet.cell_value(i, 5)
+                element_info['timeout'] = timen_out_value if isinstance(timen_out_value,
+                                                                        float) else local_config.time_out
+                element_infos[self.sheet.cell_value(i, 0)] = element_info
         return element_infos
 
 
 if __name__ == "__main__":
-    info = ElementDataUtils("login_page").get_element_infos()
-    print(info)
+    info = ElementDataUtils("login").get_element_infos("login_page")
+    # print(info)
+    for e in info.values():
+        print(e)
