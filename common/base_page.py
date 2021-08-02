@@ -6,11 +6,14 @@
 # @Software: PyCharm
 
 import time
+import os
 from selenium import webdriver
+from common import HTMLTestReportCN
 from selenium.webdriver.common.by import By
 from common.log_utils import logger
 from common.config_utils import local_config
 from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.keys import Keys
 
@@ -21,7 +24,7 @@ from selenium.webdriver.common.keys import Keys
 class BasePage:
 
     def __init__(self, driver):
-        self.driver = webdriver.Chrome()  # driver
+        self.driver = driver  # driver
 
     def open_url(self, url):
         self.driver.get(url)
@@ -128,6 +131,60 @@ class BasePage:
         element = self.find_element(element_info)
         self.__execute_script('arguments[0].setAttribute("%s","%s");' % (attribute_name, attribute_value), element)
 
+    # 　弹出窗封装
+    def switch_to_alert(self, action='accept', time_out=local_config.time_out):
+        WebDriverWait(self.driver, time_out).until(EC.alert_is_present())
+        alter = self.driver.switch_to.alert
+        alter_text = alter.text
+        if action == 'accept':
+            alter.accept()
+        elif action == 'dismiss':
+            alter.dismiss()
+        return alter_text
+
+    #  句柄封装
+    def get_window_handle(self):
+        """获取句柄"""
+        return self.driver.window_handles
+
+    def switch_to_window_by_handle(self, window_handle):
+        """切换句柄"""
+        self.driver.switch_to.window(window_handle)
+
+    def switch_to_window_by_title(self, title):
+        """根据title切换"""
+        window_handles = self.driver.window_handles
+        for window_handle in window_handles:
+            if WebDriverWait(self.driver, local_config.time_out).until(EC.title_contains(title)):
+                self.driver.switch_to.window(window_handle)
+                break
+
+    def switch_to_window_by_url(self, url):
+        """根据url切换"""
+        window_handles = self.driver.window_handles
+        for window_handle in window_handles:
+            if WebDriverWait(self.driver, local_config.time_out).until(EC.url_contains(url)):
+                self.driver.switch_to.window(window_handle)
+                break
+
+    def screenshot_as_file(self):
+        report_path = os.path.join(os.path.abspath(os.path.dirname(__file__)), '..', local_config.report_path)
+        report_dir = HTMLTestReportCN.ReportDirectory(report_path)
+        report_dir.get_screenshot(self.driver)
+        print(report_dir)
+
+
+    def screenshot_as_file_old(self, *screenshot_path):
+        current_dir = os.path.dirname(__file__)
+        if len(screenshot_path) == 0:
+            screenshot_filepath = local_config.screenshot_path
+        else:
+            screenshot_filepath = screenshot_path[0]
+        now = time.strftime('%Y_%m_%d_%H_%M_%S')
+        screenshot_filepath = os.path.join(current_dir, '..', screenshot_filepath, 'UITest_%s.png' % now)
+        print(screenshot_filepath)
+        self.driver.get_screenshot_as_file(screenshot_filepath)
+
     # 跳转框架 1.iframe ==> id/name跳转  2.frame元素对象
     # 思路一
     def switch_to_iframe(self, element_info):
@@ -158,7 +215,7 @@ class BasePage:
             element = self.find_element(element_dict['element'])
             self.driver.switch_to.frame(element)
 
-    # 移动鼠标操作
+    # 鼠标键盘封装( 判断操作系统类型)
     def move_mouse_right_click(self, element_info):
         """右击鼠标"""
         target = self.find_element(element_info)
@@ -171,17 +228,22 @@ class BasePage:
         ActionChains(self.driver).click_and_hold(target).perform()
         logger.info("左击元素：%s" % element_info['locator_value'])
 
-    def mova_mouse_double_click(self, element_info):
+    def move_mouse_double_click(self, element_info):
         """双击元素"""
         target = self.find_element(element_info)
         ActionChains(self.driver).double_click(target).perform()
         logger.info("双击元素：%s" % element_info['locator_value'])
 
-    def move_mouse_to_element(self, element_info):
+    def move_to_mouse_element(self, element_info):
         """鼠标悬停"""
         target = self.find_element(element_info)
         ActionChains(self.driver).move_to_element(target).perform()
         logger.info("鼠标当前悬停在：%s" % element_info['locator_value'])
+
+    def long_press_element(self, element_info, senconds):
+        """长按元素--按住多久然后释放"""
+        target = self.find_element(element_info)
+        ActionChains(self.driver).click_and_hold(target).pause(senconds)
 
     # 键盘操作
     def keyboard_tab(self, element_info):
@@ -219,3 +281,8 @@ class BasePage:
         element = self.find_element(element_info)
         element.send_keys(Keys.COMMAND, 'x')
         logger.info("剪切内容：%s" % element_info['locator_value'])
+
+
+if __name__ == "__main__":
+    driver = webdriver.Chrome()
+    BasePage(driver).screenshot_as_file()

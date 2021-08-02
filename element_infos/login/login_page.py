@@ -10,6 +10,7 @@ from common.log_utils import logger
 from common.base_page import *
 from common.element_data_utils import *
 from common.browser_utils import *
+from common.base_page import *
 
 
 #  页面是类  控件：属性 控件操作：方法
@@ -51,8 +52,9 @@ if __name__ == "__main__":
     login_page = LoginPage(driver)
 
     login_page.open_url(local_config.get_url)
-    login_page.set_window_max()
     login_page.input_username('test01')
     login_page.input_password('newdream123')
     login_page.click_login()
+    login_page.screenshot_as_file()
+
     driver.quit()

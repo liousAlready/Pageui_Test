@@ -33,6 +33,11 @@ class ConfigUtils:
         return logs_path
 
     @property
+    def report_path(self):
+        report_path = self.cfg.get("REPORTS", "REPORTS_PATH")
+        return report_path
+
+    @property
     def default_driver(self):
         default_driver = self.cfg.get("DRIVER", "DEFAULT_DRIVER")
         return default_driver
@@ -42,9 +47,13 @@ class ConfigUtils:
         time_out = self.cfg.get("DEFAULT", "TIME_OUT")
         return float(time_out)
 
+    @property
+    def screenshot_path(self):
+        screenshot_path_value = self.cfg.get('DEFAULT', 'SCREENT_PATH')
+        return screenshot_path_value
+
 
 local_config = ConfigUtils()
 
 if __name__ == "__main__":
-    print(type(local_config.time_out))
-    print(local_config.time_out)
+    print(local_config.screenshot_path)
