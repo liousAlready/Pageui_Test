@@ -6,6 +6,8 @@
 # @Software: PyCharm
 
 import os
+import time
+
 from common.log_utils import logger
 from common.base_page import *
 from common.element_data_utils import *
@@ -42,6 +44,9 @@ class LoginPage(BasePage):  # 继承页面类
         self.click(self.submit)
         logger.info("点击登录按钮")
 
+    def get_login_fail_alert_content(self):
+        return self.switch_to_alert()
+
 
 if __name__ == "__main__":
     # 页面= 属性+方法
@@ -55,6 +60,7 @@ if __name__ == "__main__":
     login_page.input_username('test01')
     login_page.input_password('newdream123')
     login_page.click_login()
+    login_page.wait(2)
     login_page.screenshot_as_file()
-
+    login_page.wait(2)
     driver.quit()

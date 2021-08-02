@@ -56,6 +56,7 @@ class BasePage:
         self.driver.forward()
         logger.info("前进一页...")
 
+
     # 　封装时间
     def wait(self, seconds=local_config.time_out):
         """固定等待--加入默认值，如果没有超市时间，则默认等待五秒钟"""
@@ -167,21 +168,21 @@ class BasePage:
                 self.driver.switch_to.window(window_handle)
                 break
 
-    def screenshot_as_file(self):
-        report_path = os.path.join(os.path.abspath(os.path.dirname(__file__)), '..', local_config.report_path)
-        report_dir = HTMLTestReportCN.ReportDirectory(report_path)
-        report_dir.get_screenshot(self.driver)
-        print(report_dir)
+    # def screenshot_as_file(self):
+    #     report_path = os.path.join(os.path.abspath(os.path.dirname(__file__)), '..', local_config.report_path)
+    #     report_dir = HTMLTestReportCN.ReportDirectory(report_path)
+    #     report_dir.get_screenshot(self.driver)
+    #     print(report_dir)
 
-
-    def screenshot_as_file_old(self, *screenshot_path):
+    def screenshot_as_file(self, *screenshot_path):
+        """ *screenshot_path 元祖类型不定长参数，不带参数为0 默认存放在当前路径 """
         current_dir = os.path.dirname(__file__)
         if len(screenshot_path) == 0:
             screenshot_filepath = local_config.screenshot_path
         else:
             screenshot_filepath = screenshot_path[0]
         now = time.strftime('%Y_%m_%d_%H_%M_%S')
-        screenshot_filepath = os.path.join(current_dir, '..', screenshot_filepath, 'UITest_%s.png' % now)
+        screenshot_filepath = os.path.join(current_dir, '..', screenshot_filepath, 'UI_Test_%s.png' % now)
         print(screenshot_filepath)
         self.driver.get_screenshot_as_file(screenshot_filepath)
 
@@ -285,4 +286,7 @@ class BasePage:
 
 if __name__ == "__main__":
     driver = webdriver.Chrome()
+    # 带参数
+    # BasePage(driver).screenshot_as_file('config')
+    # 不带参数
     BasePage(driver).screenshot_as_file()

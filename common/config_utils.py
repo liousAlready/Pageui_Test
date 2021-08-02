@@ -49,11 +49,20 @@ class ConfigUtils:
 
     @property
     def screenshot_path(self):
-        screenshot_path_value = self.cfg.get('DEFAULT', 'SCREENT_PATH')
+        screenshot_path_value = self.cfg.get('DEFAULT', 'SCREEN_PATH')
         return screenshot_path_value
 
+    @property
+    def name_default(self):
+        name_default = self.cfg.get('DEFAULT', 'NAME')
+        return name_default
+
+    @property
+    def password_default(self):
+        password_default = self.cfg.get('DEFAULT', 'PASSWORD')
+        return password_default
 
 local_config = ConfigUtils()
 
 if __name__ == "__main__":
-    print(local_config.screenshot_path)
+    print(local_config.password_default)

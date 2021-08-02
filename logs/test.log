@@ -178,3 +178,43 @@ logs:2021-08-02 17:49:38,553 - base_page.py[line:104] - INFO: 输入框输入内
 logs:2021-08-02 17:49:38,568 - base_page.py[line:95] - INFO: 元素识别成功：submit
 logs:2021-08-02 17:49:38,641 - base_page.py[line:110] - INFO: 识别元素进行点击操作：submit
 logs:2021-08-02 17:49:38,641 - login_page.py[line:43] - INFO: 点击登录按钮
+logs:2021-08-02 20:39:00,063 - browser_utils.py[line:29] - INFO: 当前正在打开：chrome
+logs:2021-08-02 20:39:50,819 - browser_utils.py[line:29] - INFO: 当前正在打开：chrome
+logs:2021-08-02 20:39:53,072 - browser_utils.py[line:47] - INFO: 初始化Google浏览器并启动
+logs:2021-08-02 20:39:57,040 - base_page.py[line:31] - INFO: 打开url：http://47.107.178.45/zentao/www/index.php?m=user&f=login&referer=L3plbnRhby93d3cvaW5kZXgucGhwP209dXNlciZmPWxvZ2lueg==
+logs:2021-08-02 20:39:57,040 - login_page.py[line:34] - INFO: 输入账号: test01
+logs:2021-08-02 20:39:57,053 - base_page.py[line:95] - INFO: 元素识别成功：account
+logs:2021-08-02 20:39:57,120 - base_page.py[line:104] - INFO: 输入框输入内容：test01 , 识别输入框：account
+logs:2021-08-02 20:39:57,120 - login_page.py[line:38] - INFO: 输入密码: newdream123
+logs:2021-08-02 20:39:57,132 - base_page.py[line:95] - INFO: 元素识别成功：password
+logs:2021-08-02 20:39:57,188 - base_page.py[line:104] - INFO: 输入框输入内容：newdream123 , 识别输入框：password
+logs:2021-08-02 20:39:57,199 - base_page.py[line:95] - INFO: 元素识别成功：submit
+logs:2021-08-02 20:39:57,236 - base_page.py[line:110] - INFO: 识别元素进行点击操作：submit
+logs:2021-08-02 20:39:57,236 - login_page.py[line:43] - INFO: 点击登录按钮
+logs:2021-08-02 20:40:33,932 - browser_utils.py[line:29] - INFO: 当前正在打开：chrome
+logs:2021-08-02 20:40:36,045 - browser_utils.py[line:47] - INFO: 初始化Google浏览器并启动
+logs:2021-08-02 20:40:40,468 - base_page.py[line:31] - INFO: 打开url：http://47.107.178.45/zentao/www/index.php?m=user&f=login&referer=L3plbnRhby93d3cvaW5kZXgucGhwP209dXNlciZmPWxvZ2lueg==
+logs:2021-08-02 20:40:40,468 - login_page.py[line:34] - INFO: 输入账号: test01
+logs:2021-08-02 20:40:40,478 - base_page.py[line:95] - INFO: 元素识别成功：account
+logs:2021-08-02 20:40:40,535 - base_page.py[line:104] - INFO: 输入框输入内容：test01 , 识别输入框：account
+logs:2021-08-02 20:40:40,535 - login_page.py[line:38] - INFO: 输入密码: newdream123
+logs:2021-08-02 20:40:40,545 - base_page.py[line:95] - INFO: 元素识别成功：password
+logs:2021-08-02 20:40:40,603 - base_page.py[line:104] - INFO: 输入框输入内容：newdream123 , 识别输入框：password
+logs:2021-08-02 20:40:40,613 - base_page.py[line:95] - INFO: 元素识别成功：submit
+logs:2021-08-02 20:40:40,650 - base_page.py[line:110] - INFO: 识别元素进行点击操作：submit
+logs:2021-08-02 20:40:40,650 - login_page.py[line:43] - INFO: 点击登录按钮
+logs:2021-08-02 20:43:44,127 - browser_utils.py[line:29] - INFO: 当前正在打开：chrome
+logs:2021-08-02 20:43:46,372 - browser_utils.py[line:47] - INFO: 初始化Google浏览器并启动
+logs:2021-08-02 20:43:50,976 - base_page.py[line:31] - INFO: 打开url：http://47.107.178.45/zentao/www/index.php?m=user&f=login&referer=L3plbnRhby93d3cvaW5kZXgucGhwP209dXNlciZmPWxvZ2lueg==
+logs:2021-08-02 20:43:50,976 - login_page.py[line:36] - INFO: 输入账号: test01
+logs:2021-08-02 20:43:50,985 - base_page.py[line:95] - INFO: 元素识别成功：account
+logs:2021-08-02 20:43:51,048 - base_page.py[line:104] - INFO: 输入框输入内容：test01 , 识别输入框：account
+logs:2021-08-02 20:43:51,048 - login_page.py[line:40] - INFO: 输入密码: newdream123
+logs:2021-08-02 20:43:51,058 - base_page.py[line:95] - INFO: 元素识别成功：password
+logs:2021-08-02 20:43:51,116 - base_page.py[line:104] - INFO: 输入框输入内容：newdream123 , 识别输入框：password
+logs:2021-08-02 20:43:51,127 - base_page.py[line:95] - INFO: 元素识别成功：submit
+logs:2021-08-02 20:43:51,165 - base_page.py[line:110] - INFO: 识别元素进行点击操作：submit
+logs:2021-08-02 20:43:51,165 - login_page.py[line:45] - INFO: 点击登录按钮
+logs:2021-08-02 20:43:53,169 - base_page.py[line:63] - INFO: 休息一会儿把: 2
+logs:2021-08-02 20:43:55,634 - base_page.py[line:63] - INFO: 休息一会儿把: 2
+logs:2021-08-02 20:43:57,981 - base_page.py[line:63] - INFO: 休息一会儿把: 2
