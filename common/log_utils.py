@@ -17,7 +17,7 @@ class LogUtils:
         self.logfile_path = log_path
         self.logger = logging.getLogger(__name__)  # 创建日志对象
         self.logger.setLevel(level=logging.INFO)
-        file_log = logging.FileHandler(self.logfile_path)  # 文件日志对象
+        file_log = logging.FileHandler(self.logfile_path,encoding="utf-8")  # 文件日志对象
         formatter = logging.Formatter('logs:%(asctime)s - %(filename)s[line:%(lineno)d] - %(levelname)s: %(message)s')
         file_log.setFormatter(formatter)
         self.logger.addHandler(file_log)
@@ -27,3 +27,6 @@ class LogUtils:
 
 
 logger = LogUtils().get_logger()
+
+
+logger.info("傻逼 ")

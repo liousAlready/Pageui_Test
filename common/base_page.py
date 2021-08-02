@@ -5,7 +5,6 @@
 # @File    : base_page.py
 # @Software: PyCharm
 
-from selenium import webdriver
 from selenium.webdriver.common.by import By
 from common.log_utils import logger
 from selenium.webdriver.support.ui import WebDriverWait
