@@ -30,6 +30,14 @@ class BasePage:
         self.driver.get(url)
         logger.info("打开url：%s" % url)
 
+    def close_browser(self):
+        self.driver.close()
+        logger.info("关闭当前tab页签")
+
+    def exit_driver(self):
+        self.driver.quit()
+        logger.info("退出浏览器")
+
     def set_window_max(self):
         self.driver.maximize_window()
         logger.info("浏览器最大化...")
@@ -92,7 +100,7 @@ class BasePage:
             locator_type = By.TAG_NAME
         element = WebDriverWait(self.driver, locator_timeout).until(
             lambda x: x.find_element(locator_type, locator_value))
-        logger.info("元素识别成功：%s" % element_info["locator_value"])
+        logger.info('[%s]元素识别成功' % element_info['element_name'])
         return element
 
     #  元素操作

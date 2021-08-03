@@ -2,7 +2,7 @@
 # @Time    : 2021/8/1 4:38 下午
 # @Author  : Li
 # @Email   : m15574933885@163.com
-# @File    : browser_utils.py
+# @File    : browser.py
 # @Software: PyCharm
 
 
@@ -17,7 +17,7 @@ current_path = os.path.dirname(__file__)
 driver_path = os.path.join(current_path, "..", local_config.get_driver_path)
 
 
-class BrowserUtils:
+class Browser:
 
     def __init__(self, path=driver_path):
         self.driver_path = path
@@ -42,8 +42,8 @@ class BrowserUtils:
         chrome_options.add_argument('lang=zh_CN.UTF-8')  # 设置默认编码为utf-8
         chrome_options.add_experimental_option('useAutomationExtension', False)  # 取消chrome受自动控制提示
         chrome_options.add_experimental_option("excludeSwitches", ['enable-automation'])  # 取消chrome受自动控制提示
-        chrome_driver_path = os.path.join(self.driver_path, 'chromedriver')
-        driver = webdriver.Chrome(executable_path=chrome_driver_path, options=chrome_options)
+        chrome_driver_path = os.path.join(self.driver_path, 'chromedriver.exe')
+        driver = webdriver.Chrome(chrome_driver_path, options=chrome_options)
         logger.info('初始化Google浏览器并启动')
         return driver
 

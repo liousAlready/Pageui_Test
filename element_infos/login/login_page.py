@@ -11,7 +11,7 @@ import time
 from common.log_utils import logger
 from common.base_page import *
 from common.element_data_utils import *
-from common.browser_utils import *
+from common.browser import *
 from common.base_page import *
 
 
@@ -53,7 +53,7 @@ if __name__ == "__main__":
     # 属性命名 = 名字+类型
     # 操作命名 = 操作+元素对象
 
-    driver = BrowserUtils().get_driver()
+    driver = Browser().get_driver()
     login_page = LoginPage(driver)
 
     login_page.open_url(local_config.get_url)

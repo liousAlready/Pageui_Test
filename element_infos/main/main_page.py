@@ -13,7 +13,7 @@ from common.log_utils import logger
 
 class MainPage:
 
-    def __init__(self):
+    def __init__(self, driver):
         login = LoginPage()
         login.input_username("test02")
         login.input_password('newdream123')

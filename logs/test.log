@@ -218,3 +218,61 @@ logs:2021-08-02 20:43:51,165 - login_page.py[line:45] - INFO: 点击登录按钮
 logs:2021-08-02 20:43:53,169 - base_page.py[line:63] - INFO: 休息一会儿把: 2
 logs:2021-08-02 20:43:55,634 - base_page.py[line:63] - INFO: 休息一会儿把: 2
 logs:2021-08-02 20:43:57,981 - base_page.py[line:63] - INFO: 休息一会儿把: 2
+logs:2021-08-03 10:03:38,916 - browser_utils.py[line:29] - INFO: 当前正在打开：chrome
+logs:2021-08-03 10:04:03,112 - browser_utils.py[line:29] - INFO: 当前正在打开：chrome
+logs:2021-08-03 10:04:05,757 - browser_utils.py[line:47] - INFO: 初始化Google浏览器并启动
+logs:2021-08-03 10:06:15,938 - browser_utils.py[line:29] - INFO: 当前正在打开：chrome
+logs:2021-08-03 10:06:17,935 - browser_utils.py[line:47] - INFO: 初始化Google浏览器并启动
+logs:2021-08-03 10:44:56,007 - browser.py[line:29] - INFO: 当前正在打开：chrome
+logs:2021-08-03 10:44:57,945 - browser.py[line:47] - INFO: 初始化Google浏览器并启动
+logs:2021-08-03 10:44:58,079 - base_page.py[line:43] - INFO: 浏览器最大化...
+logs:2021-08-03 10:44:58,082 - base_page.py[line:76] - INFO: 等待时间: 5.0
+logs:2021-08-03 10:45:01,544 - base_page.py[line:31] - INFO: 打开url：http://47.107.178.45/zentao/www/index.php?m=user&f=login&referer=L3plbnRhby93d3cvaW5kZXgucGhwP209dXNlciZmPWxvZ2lueg==
+logs:2021-08-03 10:45:03,561 - base_page.py[line:71] - INFO: 休息一会儿把: 2
+logs:2021-08-03 10:45:05,803 - base_page.py[line:39] - INFO: 退出浏览器
+logs:2021-08-03 10:45:23,598 - browser.py[line:29] - INFO: 当前正在打开：chrome
+logs:2021-08-03 10:45:25,574 - browser.py[line:47] - INFO: 初始化Google浏览器并启动
+logs:2021-08-03 10:45:25,714 - base_page.py[line:43] - INFO: 浏览器最大化...
+logs:2021-08-03 10:45:25,716 - base_page.py[line:76] - INFO: 等待时间: 5.0
+logs:2021-08-03 10:45:35,380 - base_page.py[line:31] - INFO: 打开url：http://47.107.178.45/zentao/www/index.php?m=user&f=login&referer=L3plbnRhby93d3cvaW5kZXgucGhwP209dXNlciZmPWxvZ2lueg==
+logs:2021-08-03 10:45:37,405 - base_page.py[line:71] - INFO: 休息一会儿把: 2
+logs:2021-08-03 10:45:39,682 - base_page.py[line:39] - INFO: 退出浏览器
+logs:2021-08-03 10:47:23,899 - browser.py[line:29] - INFO: 当前正在打开：chrome
+logs:2021-08-03 10:47:25,772 - browser.py[line:47] - INFO: 初始化Google浏览器并启动
+logs:2021-08-03 10:47:25,918 - base_page.py[line:43] - INFO: 浏览器最大化...
+logs:2021-08-03 10:47:25,920 - base_page.py[line:76] - INFO: 等待时间: 5.0
+logs:2021-08-03 10:47:29,747 - base_page.py[line:31] - INFO: 打开url：http://47.107.178.45/zentao/www/index.php?m=user&f=login&referer=L3plbnRhby93d3cvaW5kZXgucGhwP209dXNlciZmPWxvZ2lueg==
+logs:2021-08-03 10:47:31,763 - base_page.py[line:71] - INFO: 休息一会儿把: 2
+logs:2021-08-03 10:47:34,183 - base_page.py[line:39] - INFO: 退出浏览器
+logs:2021-08-03 10:48:20,730 - browser.py[line:29] - INFO: 当前正在打开：chrome
+logs:2021-08-03 10:48:22,466 - browser.py[line:47] - INFO: 初始化Google浏览器并启动
+logs:2021-08-03 10:48:22,602 - base_page.py[line:43] - INFO: 浏览器最大化...
+logs:2021-08-03 10:48:22,604 - base_page.py[line:76] - INFO: 等待时间: 5.0
+logs:2021-08-03 10:48:26,126 - base_page.py[line:31] - INFO: 打开url：http://47.107.178.45/zentao/www/index.php?m=user&f=login&referer=L3plbnRhby93d3cvaW5kZXgucGhwP209dXNlciZmPWxvZ2lueg==
+logs:2021-08-03 10:48:26,140 - login_page.py[line:36] - INFO: 输入账号: test01
+logs:2021-08-03 10:48:26,161 - base_page.py[line:103] - INFO: 元素识别成功：account
+logs:2021-08-03 10:48:26,223 - base_page.py[line:112] - INFO: 输入框输入内容：test01 , 识别输入框：account
+logs:2021-08-03 10:48:26,223 - login_page.py[line:40] - INFO: 输入密码: newdream123
+logs:2021-08-03 10:48:26,238 - base_page.py[line:103] - INFO: 元素识别成功：password
+logs:2021-08-03 10:48:26,335 - base_page.py[line:112] - INFO: 输入框输入内容：newdream123 , 识别输入框：password
+logs:2021-08-03 10:48:26,354 - base_page.py[line:103] - INFO: 元素识别成功：submit
+logs:2021-08-03 10:48:26,423 - base_page.py[line:118] - INFO: 识别元素进行点击操作：submit
+logs:2021-08-03 10:48:26,423 - login_page.py[line:45] - INFO: 点击登录按钮
+logs:2021-08-03 10:48:28,438 - base_page.py[line:71] - INFO: 休息一会儿把: 2
+logs:2021-08-03 10:48:30,646 - base_page.py[line:39] - INFO: 退出浏览器
+logs:2021-08-03 11:01:19,978 - browser.py[line:29] - INFO: 当前正在打开：chrome
+logs:2021-08-03 11:01:21,845 - browser.py[line:47] - INFO: 初始化Google浏览器并启动
+logs:2021-08-03 11:01:21,986 - base_page.py[line:43] - INFO: 浏览器最大化...
+logs:2021-08-03 11:01:21,989 - base_page.py[line:76] - INFO: 等待时间: 5.0
+logs:2021-08-03 11:01:26,431 - base_page.py[line:31] - INFO: 打开url：http://47.107.178.45/zentao/www/index.php?m=user&f=login&referer=L3plbnRhby93d3cvaW5kZXgucGhwP209dXNlciZmPWxvZ2lueg==
+logs:2021-08-03 11:01:26,441 - login_page.py[line:36] - INFO: 输入账号: test01
+logs:2021-08-03 11:01:26,458 - base_page.py[line:103] - INFO: 元素识别成功：account
+logs:2021-08-03 11:01:26,540 - base_page.py[line:112] - INFO: 输入框输入内容：test01 , 识别输入框：account
+logs:2021-08-03 11:01:26,540 - login_page.py[line:40] - INFO: 输入密码: newdream123
+logs:2021-08-03 11:01:26,566 - base_page.py[line:103] - INFO: 元素识别成功：password
+logs:2021-08-03 11:01:26,697 - base_page.py[line:112] - INFO: 输入框输入内容：newdream123 , 识别输入框：password
+logs:2021-08-03 11:01:26,713 - base_page.py[line:103] - INFO: 元素识别成功：submit
+logs:2021-08-03 11:01:26,772 - base_page.py[line:118] - INFO: 识别元素进行点击操作：submit
+logs:2021-08-03 11:01:26,773 - login_page.py[line:45] - INFO: 点击登录按钮
+logs:2021-08-03 11:01:28,782 - base_page.py[line:71] - INFO: 休息一会儿把: 2
+logs:2021-08-03 11:01:31,090 - base_page.py[line:39] - INFO: 退出浏览器
