@@ -8,16 +8,19 @@ from action.login_action import LoginAction
 from common.browser import Browser
 from common.base_page import BasePage
 from common.config_utils import local_config
-from common.selenium_base_case import SeleniumBaseCase
 
 
-class LoginTest(SeleniumBaseCase):
-    """继承 SeleniumBaseCase  三层继承关系 LoginTest --> SeleniumBaseCase --> unittest.TestCasw"""
+class LoginTest(unittest.TestCase):
 
     def setUp(self) -> None:
-        """自定义内容需要先调取父类的setup才能够自定义"""
-        super().setUp()
-        print("---hello---")
+        self.base_page = BasePage(Browser().get_driver())
+        self.base_page.set_window_max()
+        self.base_page.implicitly_wait()
+        self.base_page.open_url(local_config.get_url)
+
+    def tearDown(self) -> None:
+        self.base_page.wait(2)
+        self.base_page.exit_driver()
 
     def test_login_success(self):
         login_action = LoginAction(self.base_page.driver)
