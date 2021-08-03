@@ -3,4 +3,6 @@
 # @Author : Limusen
 # @File : demo2
 
+
+# !/usr/bin/env python  -- 引用环境变量中的python
 print("hello,python")

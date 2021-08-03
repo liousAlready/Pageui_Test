@@ -66,18 +66,30 @@ class BasePage:
 
     # 　封装时间
     def wait(self, seconds=local_config.time_out):
-        """固定等待--加入默认值，如果没有超市时间，则默认等待五秒钟"""
+        """
+        固定等待--加入默认值，如果没有设置超时时间，则默认等待五秒钟
+
+        :param seconds: 如果没有传入值则默认等待5秒钟
+        """
         time.sleep(seconds)
-        logger.info("休息一会儿把: %s" % seconds)
+        logger.info("休息一会儿 %s 秒钟~" % seconds)
 
     def implicitly_wait(self, seconds=local_config.time_out):
-        """隐式等待"""
-        self.driver.implicitly_wait(seconds)
-        logger.info("等待时间: %s" % seconds)
+        """
+        隐式等待--加入默认值，如果没有设置超时时间，则默认等待五秒钟
 
-    #  元素识别 通过分离处理的元素识别字典信息，返回一个元素
-    # self.username_input_box = self.driver.find_element(By.XPATH, '//*[@name="account"]')
+        :param seconds: 如果没有传入值则默认等待5秒钟
+        """
+        self.driver.implicitly_wait(seconds)
+        logger.info("隐式等待个 %s 秒" % seconds)
+
     def find_element(self, element_info):
+        """
+        通过分离处理的元素识别字典信息，返回一个元素
+
+        :param element_info: 元素信息，字典类型{}
+        :return: element对象
+        """
         locator_type = element_info["locator_type"]
         locator_value = element_info["locator_value"]
         locator_timeout = element_info["timeout"]
@@ -107,18 +119,29 @@ class BasePage:
 
     #  封装输入参数
     def input(self, element_info, inputs):
+        """
+        :param element_info: 元素信息，字典类型{}
+        :param inputs: 输入参数
+        """
         element = self.find_element(element_info)
         element.send_keys(inputs)
         logger.info("输入框输入内容：%s , 识别输入框：%s" % (inputs, element_info["locator_value"]))
 
     #  封装点击方法
     def click(self, element_info):
+        """
+        :param element_info: 元素信息，字典类型{}
+        """
         element = self.find_element(element_info)
         element.click()
         logger.info("识别元素进行点击操作：%s" % element_info["locator_value"])
 
     # selenium 执行js
     def __execute_script(self, js_str, element_info=None):
+        """
+        :param js_str: selenium_js 的执行语句  ex: arguments[0].removeAttribute("%s");
+        :param element_info: 元素信息，字典类型{}
+        """
         if element_info:
             self.driver.execute_script(js_str)
         else:
@@ -130,17 +153,29 @@ class BasePage:
         self.driver.execute_script('arguments[0].removeAttribute("%s");' % attribute_name, element)
 
     def delete_element_attribute(self, element_info, attribute_name):
-        """移除元素属性"""
+        """
+        :param element_info: 元素信息，字典类型{}
+        :param attribute_name: 需要移除的元素
+        """
         element = self.find_element(element_info)
         self.__execute_script('arguments[0].removeAttribute("%s");' % attribute_name, element)
 
     def update_element_attribute(self, element_info, attribute_name, attribute_value):
-        """修改元素属性"""
+        """
+        :param element_info: 元素信息，字典类型{}
+        :param attribute_name: 需要设置的元素
+        :param attribute_value: 最终修改的值
+        :return:
+        """
         element = self.find_element(element_info)
         self.__execute_script('arguments[0].setAttribute("%s","%s");' % (attribute_name, attribute_value), element)
 
     # 　弹出窗封装
     def switch_to_alert(self, action='accept', time_out=local_config.time_out):
+        """
+        :param action: 默认点击确定操作
+        :param time_out: 超时时间
+        """
         WebDriverWait(self.driver, time_out).until(EC.alert_is_present())
         alter = self.driver.switch_to.alert
         alter_text = alter.text
@@ -156,11 +191,17 @@ class BasePage:
         return self.driver.window_handles
 
     def switch_to_window_by_handle(self, window_handle):
-        """切换句柄"""
+        """
+        :param window_handle: 切换到某个句柄
+        :return:
+        """
         self.driver.switch_to.window(window_handle)
 
     def switch_to_window_by_title(self, title):
-        """根据title切换"""
+        """
+        :param title: 根据title切换
+        :return:
+        """
         window_handles = self.driver.window_handles
         for window_handle in window_handles:
             if WebDriverWait(self.driver, local_config.time_out).until(EC.title_contains(title)):
@@ -168,7 +209,9 @@ class BasePage:
                 break
 
     def switch_to_window_by_url(self, url):
-        """根据url切换"""
+        """
+        :param url: 根据url切换
+        """
         window_handles = self.driver.window_handles
         for window_handle in window_handles:
             if WebDriverWait(self.driver, local_config.time_out).until(EC.url_contains(url)):
@@ -182,7 +225,9 @@ class BasePage:
     #     print(report_dir)
 
     def screenshot_as_file(self, *screenshot_path):
-        """ *screenshot_path 元祖类型不定长参数，不带参数为0 默认存放在当前路径 """
+        """
+        :param screenshot_path:  *screenshot_path 元祖类型不定长参数，不带参数为0 默认存放在当前路径
+        """
         current_dir = os.path.dirname(__file__)
         if len(screenshot_path) == 0:
             screenshot_filepath = local_config.screenshot_path

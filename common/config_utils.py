@@ -48,6 +48,16 @@ class ConfigUtils:
         return float(time_out)
 
     @property
+    def log_level(self):
+        log_level_value = int(self.cfg.get('LOGS', 'LOG_LEVEL'))
+        return log_level_value
+
+    @property
+    def log_path(self):
+        log_path = self.cfg.get('LOGS', 'LOGS_PATH')
+        return log_path
+
+    @property
     def screenshot_path(self):
         screenshot_path_value = self.cfg.get('DEFAULT', 'SCREEN_PATH')
         return screenshot_path_value
@@ -62,7 +72,8 @@ class ConfigUtils:
         password_default = self.cfg.get('DEFAULT', 'PASSWORD')
         return password_default
 
+
 local_config = ConfigUtils()
 
 if __name__ == "__main__":
-    print(local_config.password_default)
+    print(local_config.log_path)

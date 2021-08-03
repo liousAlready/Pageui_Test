@@ -12,10 +12,15 @@ from common.selenium_base_case import SeleniumBaseCase
 
 
 class LoginTest(SeleniumBaseCase):
-    """继承 SeleniumBaseCase  三层继承关系 LoginTest --> SeleniumBaseCase --> unittest.TestCasw"""
+    """
+    继承 SeleniumBaseCase
+    三层继承关系 LoginTest --> SeleniumBaseCase --> unittest.TestCase
+    """
 
     def setUp(self) -> None:
-        """自定义内容需要先调取父类的setup才能够自定义"""
+        """
+        自定义内容需要先调取父类的setup才能够自定义
+        """
         super().setUp()
         print("---hello---")
 
@@ -28,7 +33,7 @@ class LoginTest(SeleniumBaseCase):
     def test_login_fail(self):
         login_action = LoginAction(self.base_page.driver)
         actual_result = login_action.login_fail('test01', 'newdream')
-        print("actual_result: %s" % actual_result)
+        # print("actual_result: %s" % actual_result)
         self.assertEqual(actual_result, "登录失败，请检查您的用户名或密码是否填写正确。")
 
 

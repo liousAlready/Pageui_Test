@@ -42,7 +42,7 @@ class Browser:
         chrome_options.add_argument('lang=zh_CN.UTF-8')  # 设置默认编码为utf-8
         chrome_options.add_experimental_option('useAutomationExtension', False)  # 取消chrome受自动控制提示
         chrome_options.add_experimental_option("excludeSwitches", ['enable-automation'])  # 取消chrome受自动控制提示
-        chrome_driver_path = os.path.join(self.driver_path, 'chromedriver.exe')
+        chrome_driver_path = os.path.join(self.driver_path, 'chromedriver')
         driver = webdriver.Chrome(chrome_driver_path, options=chrome_options)
         logger.info('初始化Google浏览器并启动')
         return driver
@@ -50,11 +50,13 @@ class Browser:
     def __get_firefox_driver(self):
         firefox_driver_path = os.path.join(self.driver_path, 'geckodriver.exe')
         driver = webdriver.Firefox(executable_path=firefox_driver_path)
+        logger.info('初始化Firefox浏览器并启动')
         return driver
 
     def __get_edge_driver(self):
         edge_driver_path = os.path.join(self.driver_path, 'msedgedriver.exe')
         driver = webdriver.Edge(executable_path=edge_driver_path)
+        logger.info('初始化Edge浏览器并启动')
         return driver
 
     def __get_remove_to_driver(self):  # selenium支持分布式 grid ==》配置（你自己的代码编写、对方电脑的配置）
