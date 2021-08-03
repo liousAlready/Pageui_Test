@@ -51,10 +51,10 @@ class BasePage:
         logger.info("获取标题：%s" % value)
         return value
 
-    def get_text(self):
-        value = self.driver.text()
-        logger.info("获取文本信息：%s" % value)
-        return value
+    def get_text(self, element_info):
+        element = self.find_element(element_info)
+        logger.info("获取文本信息：%s" % element)
+        return element.text
 
     def back_up(self):
         self.driver.back()

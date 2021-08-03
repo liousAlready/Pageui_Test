@@ -5,51 +5,41 @@
 # @File    : main_page.py
 # @Software: PyCharm
 
+import os
+from common.element_data_utils import ElementDataUtils
+from common.base_page import BasePage
+from common.browser import Browser
+from common.config_utils import local_config
 
-from selenium.webdriver.common.by import By
-from element_infos.login.login_page import LoginPage
-from common.log_utils import logger
+
+# from action.login_action import LoginAction
 
 
-class MainPage:
-
+class MainPage(BasePage):
     def __init__(self, driver):
-        login = LoginPage()
-        login.input_username("test02")
-        login.input_password('newdream123')
-        login.click_login()
-        self.driver = login.driver  # 把login的driver转移到main
-        self.company_name_show = self.driver.find_element(By.XPATH, '//*[@id="companyname"]')
-        self.my_zone_show = self.driver.find_element(By.XPATH,
-                                                     '//*[@class="active"]/*[@href="/zentao/www/index.php?m=my&f=index"]')
-        self.my_product = self.driver.find_element(By.XPATH,
-                                                   '//*[@data-id="product"]/*[@href="/zentao/www/index.php?m=product&f=index&locate=no"]')
-        self.username_show_box = self.driver.find_element(By.XPATH, '//*[@class="user-name"]')
+        super().__init__(driver)
+        elements = ElementDataUtils('main').get_element_infos('main_page')
+        self.myzone_link = elements['myzone_link']
+        self.user_menu = elements['user_menu']
+        self.quit_button = elements['quit_button']
 
-    def get_companyname(self):
-        """获取公司名称"""
-        value = self.company_name_show.get_attribute("title")
-        logger.info("获取公司名称：%s" % value)
-        return value
-
-    def goto_myzone(self):
-        """选择我的地盘"""
-        self.my_zone_show.click()
-        logger.info("点击我的地盘")
-
-    def goto_myproduct(self):
-        """点击我的产品"""
-        self.my_product.click()
-        logger.info("点击我的产品")
+    def goto_myzone(self):  # 进入我的地盘菜单
+        self.click(self.myzone_link)
 
     def get_username(self):
-        """获取用户名"""
-        value = self.username_show_box.text
-        logger.info("获取用户名称：%s" % value)
+        value = self.get_text(self.user_menu)
         return value
+
+    def click_username(self):
+        self.click(self.user_menu)
+
+    def click_quit_button(self):
+        self.click(self.quit_button)
 
 
 if __name__ == "__main__":
-    main = MainPage()
-    username = main.get_username()
-    companyname = main.get_companyname()
+    driver = Browser().get_driver()
+    # driver.get(local_config.get_url)
+    # main = LoginAction(driver).login_default()
+    # value = main.get_username()
+    # print(value)

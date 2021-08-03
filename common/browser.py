@@ -5,9 +5,9 @@
 # @File    : browser.py
 # @Software: PyCharm
 
-
+import os
 from selenium import webdriver
-from common.config_utils import *
+from common.config_utils import local_config
 from selenium.webdriver.chrome.options import Options
 from common.log_utils import logger
 
@@ -62,4 +62,4 @@ class Browser:
 
 
 if __name__ == "__main__":
-    BrowserUtils().get_driver()
+    Browser().get_driver()
