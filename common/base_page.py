@@ -56,7 +56,6 @@ class BasePage:
         self.driver.forward()
         logger.info("前进一页...")
 
-
     # 　封装时间
     def wait(self, seconds=local_config.time_out):
         """固定等待--加入默认值，如果没有超市时间，则默认等待五秒钟"""
@@ -241,10 +240,10 @@ class BasePage:
         ActionChains(self.driver).move_to_element(target).perform()
         logger.info("鼠标当前悬停在：%s" % element_info['locator_value'])
 
-    def long_press_element(self, element_info, senconds):
+    def long_press_element(self, element_info, second):
         """长按元素--按住多久然后释放"""
         target = self.find_element(element_info)
-        ActionChains(self.driver).click_and_hold(target).pause(senconds)
+        ActionChains(self.driver).click_and_hold(target).pause(second)
 
     # 键盘操作
     def keyboard_tab(self, element_info):
@@ -253,7 +252,7 @@ class BasePage:
         element.send_keys(Keys.TAB)
         logger.info("点击tab：%s" % element_info['locator_value'])
 
-    def keyboard_delte(self, element_info):
+    def keyboard_delete(self, element_info):
         """删除键"""
         element = self.find_element(element_info)
         element.send_keys(Keys.BACK_SPACE)

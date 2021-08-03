@@ -14,4 +14,4 @@ def commit_bug(**bug_info):
     return bug_info
 
 
-print(commit_bug(bug_title="xi",bug_content="aklsjdkla"))
+print(commit_bug(bug_title="xi", bug_content="下次"))
