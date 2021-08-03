@@ -23,7 +23,7 @@ class LoginAction:
         self.login_page.click_login()
 
     def login_default(self):
-        self.login_success(local_config.name_default, local_config.password_default)
+        return self.login_success(local_config.name_default, local_config.password_default)
 
     def login_success(self, username, password):
         self.login_action(username, password)

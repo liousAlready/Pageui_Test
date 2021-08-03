@@ -211,7 +211,7 @@ class BasePage:
         self.driver.switch_to.frame(element)
 
     # 思路三
-    def switch_to_iframe1(self, **element_dict):
+    def switch_to_iframe_new(self, **element_dict):
         # ＊＊代表字典  switch_to_iframe_01(id=iframe_id)
         # element = (element_info)
         self.wait(3)

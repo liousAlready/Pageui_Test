@@ -36,7 +36,7 @@ class ElementDataUtils:
 
 
 if __name__ == "__main__":
-    info = ElementDataUtils("login").get_element_infos("login_page")
+    info = ElementDataUtils("main").get_element_infos("main_page")
     # print(info)
     for e in info.values():
         print(e)
