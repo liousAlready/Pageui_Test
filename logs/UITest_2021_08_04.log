@@ -1,0 +1,15 @@
+[2021-08-04 11:26:24,832] selenium_base_case.py->setUpClass line:18 [INFO] : 
+[2021-08-04 11:26:24,833] selenium_base_case.py->setUpClass line:19 [INFO] : ==============测试类开始执行==============
+[2021-08-04 11:26:24,838] selenium_base_case.py->setUp line:23 [INFO] : -----------测试开始执行-----------
+[2021-08-04 11:26:24,839] browser.py->get_driver line:34 [INFO] : 当前正在打开：chrome
+[2021-08-04 11:26:26,812] browser.py->__get_chrome_driver line:58 [INFO] : 初始化Google浏览器并启动
+[2021-08-04 11:26:26,958] base_page.py->set_window_max line:46 [INFO] : 浏览器最大化...
+[2021-08-04 11:26:26,959] base_page.py->implicitly_wait line:87 [INFO] : 隐式等待个 5.0 秒
+[2021-08-04 11:26:30,991] base_page.py->open_url line:34 [INFO] : 打开url：http://47.107.178.45/zentao/www/index.php?m=user&f=login&referer=L3plbnRhby93d3cvaW5kZXgucGhwP209dXNlciZmPWxvZ2lueg==
+[2021-08-04 11:26:31,140] login_page.py->input_username line:31 [INFO] : 输入账号: hahahahaah
+[2021-08-04 11:26:31,158] base_page.py->find_element line:118 [INFO] : [用户名输入框]元素识别成功
+[2021-08-04 11:26:31,234] base_page.py->input line:131 [INFO] : 输入框输入内容：hahahahaah , 识别输入框：account
+[2021-08-04 11:26:31,235] selenium_base_case.py->tearDown line:30 [INFO] : -----------测试方法执行完毕-----------
+[2021-08-04 11:26:33,237] base_page.py->wait line:78 [INFO] : 休息一会儿 2 秒钟~
+[2021-08-04 11:26:36,328] base_page.py->exit_driver line:42 [INFO] : 退出浏览器
+[2021-08-04 11:26:36,338] selenium_base_case.py->tearDownClass line:37 [INFO] : ==============测试类执行完毕==============

@@ -5,8 +5,9 @@
 # @File    : base_page.py
 # @Software: PyCharm
 
-import time
 import os
+import time
+import sys
 from selenium import webdriver
 from common import HTMLTestReportCN
 from selenium.webdriver.common.by import By
@@ -18,6 +19,8 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.keys import Keys
 
 '''所有页面的父类,提取所有页面的公共操作，做成BasePage'''
+
+system = sys.platform
 
 
 # 启动浏览器之后，将driver传给Base_page
@@ -313,27 +316,47 @@ class BasePage:
 
     def keyboard_all(self, element_info):
         """全选"""
-        element = self.find_element(element_info)
-        element.send_keys(Keys.COMMAND, 'a')
-        logger.info("全选内容：%s" % element_info['locator_value'])
+        if system.lower() == "win32":
+            element = self.find_element(element_info)
+            element.send_keys(Keys.CONTROL, 'a')
+            logger.info("全选内容：%s" % element_info['locator_value'])
+        else:
+            element = self.find_element(element_info)
+            element.send_keys(Keys.COMMAND, 'a')
+            logger.info("全选内容：%s" % element_info['locator_value'])
 
     def keyboard_copy(self, element_info):
         """复制内容"""
-        element = self.find_element(element_info)
-        element.send_keys(Keys.COMMAND, 'c')
-        logger.info("复制内容：%s" % element_info['locator_value'])
+        if system.lower() == "win32":
+            element = self.find_element(element_info)
+            element.send_keys(Keys.CONTROL, 'c')
+            logger.info("复制内容：%s" % element_info['locator_value'])
+        else:
+            element = self.find_element(element_info)
+            element.send_keys(Keys.COMMAND, 'c')
+            logger.info("复制内容：%s" % element_info['locator_value'])
 
     def keyboard_paste(self, element_info):
         """粘贴内容"""
-        element = self.find_element(element_info)
-        element.send_keys(Keys.COMMAND, 'v')
-        logger.info("粘贴内容：%s" % element_info['locator_value'])
+        if system.lower() == "win32":
+            element = self.find_element(element_info)
+            element.send_keys(Keys.CONTROL, 'v')
+            logger.info("粘贴内容：%s" % element_info['locator_value'])
+        else:
+            element = self.find_element(element_info)
+            element.send_keys(Keys.COMMAND, 'v')
+            logger.info("粘贴内容：%s" % element_info['locator_value'])
 
     def keyboard_cut(self, element_info):
         """剪切内容"""
-        element = self.find_element(element_info)
-        element.send_keys(Keys.COMMAND, 'x')
-        logger.info("剪切内容：%s" % element_info['locator_value'])
+        if system.lower() == "win32":
+            element = self.find_element(element_info)
+            element.send_keys(Keys.CONTROL, 'x')
+            logger.info("剪切内容：%s" % element_info['locator_value'])
+        else:
+            element = self.find_element(element_info)
+            element.send_keys(Keys.COMMAND, 'x')
+            logger.info("剪切内容：%s" % element_info['locator_value'])
 
 
 if __name__ == "__main__":
