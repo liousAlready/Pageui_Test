@@ -76,4 +76,6 @@ class ConfigUtils:
 local_config = ConfigUtils()
 
 if __name__ == "__main__":
-    print(local_config.log_path)
+    c = local_config.system_driver
+
+    print(local_config.system_driver)

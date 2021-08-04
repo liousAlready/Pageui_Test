@@ -17,6 +17,10 @@ from common.log_utils import logger
 current_path = os.path.dirname(__file__)
 driver_path = os.path.join(current_path, "..", local_config.get_driver_path)
 
+sys_driver = {"chrome_macos": "chromedriver", "chrome_win": "chromedriver.exe"}
+
+print(sys_driver['chrome_macos'])
+
 
 class Browser:
     system_driver = sys.platform
@@ -39,22 +43,17 @@ class Browser:
 
     def __get_chrome_driver(self):
         """去除谷歌浏览器控制白条"""
+        chrome_options = Options()
+        chrome_options.add_argument('--disable-gpu')  # 谷歌文档提到需要加上这个属性来规避bug
+        chrome_options.add_argument('lang=zh_CN.UTF-8')  # 设置默认编码为utf-8
+        chrome_options.add_experimental_option('useAutomationExtension', False)  # 取消chrome受自动控制提示
+        chrome_options.add_experimental_option("excludeSwitches", ['enable-automation'])  # 取消chrome受自动控制提示
         if self.driver_system.lower() == "darwin":
-            chrome_options = Options()
-            chrome_options.add_argument('--disable-gpu')  # 谷歌文档提到需要加上这个属性来规避bug
-            chrome_options.add_argument('lang=zh_CN.UTF-8')  # 设置默认编码为utf-8
-            chrome_options.add_experimental_option('useAutomationExtension', False)  # 取消chrome受自动控制提示
-            chrome_options.add_experimental_option("excludeSwitches", ['enable-automation'])  # 取消chrome受自动控制提示
             chrome_driver_path = os.path.join(self.driver_path, 'chromedriver')
             driver = webdriver.Chrome(chrome_driver_path, options=chrome_options)
             logger.info('初始化Google浏览器并启动')
             return driver
         else:
-            chrome_options = Options()
-            chrome_options.add_argument('--disable-gpu')  # 谷歌文档提到需要加上这个属性来规避bug
-            chrome_options.add_argument('lang=zh_CN.UTF-8')  # 设置默认编码为utf-8
-            chrome_options.add_experimental_option('useAutomationExtension', False)  # 取消chrome受自动控制提示
-            chrome_options.add_experimental_option("excludeSwitches", ['enable-automation'])  # 取消chrome受自动控制提示
             chrome_driver_path = os.path.join(self.driver_path, 'chromedriver.exe')
             driver = webdriver.Chrome(chrome_driver_path, options=chrome_options)
             logger.info('初始化Google浏览器并启动')
