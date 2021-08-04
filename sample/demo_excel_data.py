@@ -1,24 +1,20 @@
 # -*- coding: utf-8 -*-
-# @Time    : 2021/8/1 3:58 下午
-# @Author  : Li
-# @Email   : m15574933885@163.com
-# @File    : element_data_utils.py
-# @Software: PyCharm
+# @Time : 2021/8/4 16:08
+# @Author : Limusen
+# @File : demo_excel_data
+
 
 import os
+import xlrd
 from common.config_utils import local_config
 from common.excel_utils import ExcelUtils
 
+#  元素识别信息读取工具类
 current_path = os.path.dirname(__file__)
 excel_path = os.path.join(current_path, '../element_info_datas/element_info_datas.xls')
 
 
 class ElementDataUtils(ExcelUtils):
-    """
-
-    封装实现业务的读取类
-
-    """
     def __init__(self, module_name, path=excel_path):
         super(ElementDataUtils, self).__init__(module_name, path)
 

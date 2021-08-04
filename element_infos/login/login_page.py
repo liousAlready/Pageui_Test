@@ -22,7 +22,7 @@ class LoginPage(BasePage):  # 继承页面类
     def __init__(self, driver):
         super().__init__(driver)
 
-        elements = ExcelUtils("login").get_element_data("login_page")
+        elements = ElementDataUtils("login").get_element_data("login_page")
         self.username_input_box = elements["username_inputbox"]
         self.password_input_box = elements["password_inputbox"]
         self.submit = elements["login_button"]
