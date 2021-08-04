@@ -18,14 +18,13 @@ import warnings
 current_path = os.path.dirname(__file__)
 driver_path = os.path.join(current_path, "..", local_config.get_driver_path)
 
-# 　去除控制台警告
-warnings.filterwarnings("ignore", category=DeprecationWarning)
-
 
 class Browser:
     system_driver = sys.platform
 
     def __init__(self, path=driver_path):
+        # 　去除控制台警告
+        warnings.filterwarnings("ignore", category=DeprecationWarning)
         self.driver_path = path
         self.driver_name = local_config.default_driver
         self.driver_system = Browser.system_driver

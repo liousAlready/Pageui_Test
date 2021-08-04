@@ -7,6 +7,7 @@
 
 import os
 import time
+
 from common.log_utils import logger
 from common.base_page import *
 from common.element_data_utils import *
@@ -20,9 +21,16 @@ from common.excel_utils import ExcelUtils
 class LoginPage(BasePage):  # 继承页面类
 
     def __init__(self, driver):
+        # 驱动的处理
+        # 1.继承父类  子类构造方法需要显示调用父类的构造
         super().__init__(driver)
+        # # 2.父类方法.构造方法(self,driver)
+        # BasePage.__init__(self, driver)
 
-        elements = ExcelUtils("login").get_element_data("login_page")
+        # 创建excel读取对象，通过字典来进行数据读取
+        elements = ElementDataUtils('login').get_element_infos('login_page')
+
+        # elements = ExcelUtils("login").get_element_data("login_page")  # 新方法 封装的读取excel类
         self.username_input_box = elements["username_inputbox"]
         self.password_input_box = elements["password_inputbox"]
         self.submit = elements["login_button"]
@@ -36,8 +44,8 @@ class LoginPage(BasePage):  # 继承页面类
         self.input(self.password_input_box, password)
 
     def click_login(self):
-        logger.info("点击登录按钮")
         self.click(self.submit)
+        logger.info("点击登录按钮")
 
     def get_login_fail_alert_content(self):
         return self.switch_to_alert()

@@ -72,10 +72,18 @@ class ConfigUtils:
         password_default = self.cfg.get('DEFAULT', 'PASSWORD')
         return password_default
 
+    @property
+    def test_data_path(self):
+        test_data_path = self.cfg.get("TEST", "TEST_DATES")
+        return test_data_path
+
+    @property
+    def test_path(self):
+        test_path = self.cfg.get("TEST", "TEST_CASE")
+        return test_path
+
 
 local_config = ConfigUtils()
 
 if __name__ == "__main__":
-    c = local_config.system_driver
-
-    print(local_config.system_driver)
+    print(local_config.test_path)

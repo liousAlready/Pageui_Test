@@ -1,9 +1,7 @@
 # -*- coding: utf-8 -*-
-# @Time    : 2021/8/3 9:26 下午
-# @Author  : Li
-# @Email   : m15574933885@163.com
-# @File    : excel_utils.py
-# @Software: PyCharm
+# @Time : 2021/8/4 9:30
+# @Author : Limusen
+# @File : excel_demo
 
 
 import os
@@ -17,7 +15,7 @@ excel_file_path = os.path.join(current_path, '..', local_config.test_data_path, 
 
 class ExcelUtils:
 
-    def __init__(self, sheet_name, filename=excel_file_path):
+    def __init__(self, sheet_name, filename):
         self.filename = filename
         self.sheet_name = sheet_name
 
@@ -45,27 +43,22 @@ class ExcelUtils:
         return table.cell_value(row, column)
 
     # 读取excel单张表 多行多列
-    def get_element_data(self, page_name):
+    def excel_data(self):
         element_info_dict = {}
         for number in range(1, self.excel_rows()):
-            if self.excel_read(number, 2) == page_name:
-                element_info = {}
-                element_info['element_name'] = self.excel_read(number, 1)
-                element_info['locator_type'] = self.excel_read(number, 3)
-                element_info['locator_value'] = self.excel_read(number, 4)
-                time_out_value = self.excel_read(number, 5)
-                element_info['timeout'] = time_out_value if isinstance(time_out_value,
-                                                                       float) else local_config.time_out
-                element_info_dict[self.excel_read(number, 0)] = element_info
+            element_info = {}
+            element_info['element_name'] = self.excel_read(number, 1)
+            element_info['locator_type'] = self.excel_read(number, 3)
+            element_info['locator_value'] = self.excel_read(number, 4)
+            time_out_value = self.excel_read(number, 5)
+            element_info['timeout'] = time_out_value if isinstance(time_out_value,
+                                                                   float) else local_config.time_out
+            element_info_dict[self.excel_read(number, 0)] = element_info
 
         return element_info_dict
 
     # 判断excel文件是否存在，不存在则创建，存在则直接打开编辑
     def excel_create(self, new_name="新页面"):
-        """
-        :param new_name: 首行首列展示的内容
-        :return:
-        """
         if not os.path.exists(self.filename):
             data = xlwt.Workbook()
             table = data.add_sheet(self.sheet_name)
@@ -74,9 +67,6 @@ class ExcelUtils:
 
 
 if __name__ == "__main__":
-    info = ExcelUtils("main").get_element_data("main_page")
-    for e in info.values():
-        print(e)
-
-    # ex：qwe是sheet页面名称  后面接的是文件名称 如果不传内容则默认打印新页面
-    ExcelUtils("qwe", "../element_info_datas/logins.xlsx").excel_create("测试")
+    info = ExcelUtils("login", excel_file_path).excel_data()
+    for i in info.values():
+        print(i)
