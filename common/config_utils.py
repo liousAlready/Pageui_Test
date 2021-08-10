@@ -82,8 +82,12 @@ class ConfigUtils:
         test_path = self.cfg.get("TEST", "TEST_CASE")
         return test_path
 
+    @property
+    def test_datas_path(self):
+        test_path = self.cfg.get("TEST", "TEST_DATA_PATH")
+        return test_path
 
 local_config = ConfigUtils()
 
 if __name__ == "__main__":
-    print(local_config.test_path)
+    print(local_config.test_datas_path)

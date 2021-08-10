@@ -18,7 +18,7 @@ from common.config_utils import local_config
 class MainPage(BasePage):
     def __init__(self, driver):
         super().__init__(driver)
-        elements = ElementDataUtils('main').get_element_infos('main_page')
+        elements = ElementDataUtils('main').get_element_data('main_page')
         self.myzone_link = elements['myzone_link']
         self.user_menu = elements['user_menu']
         self.quit_button = elements['quit_button']

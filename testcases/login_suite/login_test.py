@@ -31,7 +31,7 @@ class LoginTest(SeleniumBaseCase):
         login_action = LoginAction(self.base_page.driver)
         actual_result = login_action.login_fail('test01', 'newdream')
         print("actual_result: %s" % actual_result)
-        self.assertEqual(actual_result, "登录失败，请检查您的用户名或密码是否填写正确。")
+        self.assertEqual(actual_result, "登录失败，请检查您的用户名或密码是否填写正确。",'test_login_fail,执行失败')
 
 
 if __name__ == "__main__":
