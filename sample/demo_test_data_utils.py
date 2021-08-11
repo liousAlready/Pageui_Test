@@ -1,22 +1,22 @@
 # -*- coding: utf-8 -*-
-# @Time : 2021/8/10 10:33
+# @Time : 2021/8/11 15:27
 # @Author : Limusen
-# @File : test_data_utils
+# @File : demo_test_data_utils
 
 
 import os
 from common.config_utils import local_config
-from common.element_data_utils import ExcelUtils
+from common.excel_utils import ExcelUtils
 
 current = os.path.dirname(__file__)
-test_data_path = os.path.join(current, '..', local_config.test_datas_path)
+dir_path = os.path.join(current, '..',local_config.test_datas_path)
 
 
 class TestDataUtils:
 
     def __init__(self, test_suite_name, test_class_name):
         self.test_class_name = test_class_name
-        self.excel_data = ExcelUtils(test_suite_name, test_data_path).get_sheet_data_by_list()
+        self.excel_data = ExcelUtils(test_suite_name, dir_path).get_sheet_data_by_list()
         self.test_suite_counts = len(self.excel_data) - 1
         self.excel_rows = len(self.excel_data)
 
@@ -40,6 +40,7 @@ class TestDataUtils:
 
 
 if __name__ == "__main__":
-    information = TestDataUtils("login_suite", "LoginTest").convert_excel_data_test_data()
-    for i in information.values():
+    infos = TestDataUtils("login_suite", "LoginTest").convert_excel_data_test_data()
+
+    for i in infos.values():
         print(i)

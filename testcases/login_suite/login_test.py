@@ -6,6 +6,7 @@
 import unittest
 from action.login_action import LoginAction
 from common.selenium_base_case import SeleniumBaseCase
+from common.test_data_utils import TestDataUtils
 
 
 class LoginTest(SeleniumBaseCase):
@@ -20,18 +21,25 @@ class LoginTest(SeleniumBaseCase):
         """
         super().setUp()
         print("---hello---")
+        self.test_class_data = TestDataUtils("login_suite", "LoginTest").convert_excel_data_test_data()
 
     def test_login_success(self):
+        test_data = self.test_class_data['test_login_success']
+        self._testMethodDoc = test_data['test_name']
         login_action = LoginAction(self.base_page.driver)
-        main_page = login_action.login_success('test01', 'newdream123')
+        main_page = login_action.login_success(test_data['test_parameter'].get('username'),
+                                               test_data['test_parameter'].get('password'))
         actual_result = main_page.get_username()
-        self.assertEqual(actual_result, '测试人员1', 'test_login_success,执行失败')
+        self.assertEqual(actual_result, test_data['excepted_result'], 'test_login_success,执行失败')
 
     def test_login_fail(self):
+        test_data = self.test_class_data['test_login_fail']
+        self._testMethodDoc = test_data['test_name']
         login_action = LoginAction(self.base_page.driver)
-        actual_result = login_action.login_fail('test01', 'newdream')
+        actual_result = login_action.login_fail(test_data['test_parameter'].get('username'),
+                                               test_data['test_parameter'].get('password'))
         print("actual_result: %s" % actual_result)
-        self.assertEqual(actual_result, "登录失败，请检查您的用户名或密码是否填写正确。",'test_login_fail,执行失败')
+        self.assertEqual(actual_result, test_data['excepted_result'], 'test_login_fail,执行失败')
 
 
 if __name__ == "__main__":
