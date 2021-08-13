@@ -122,7 +122,7 @@ class BasePage:
             logger.info('[%s]元素识别成功' % element_info['element_name'])
         except Exception as e:
             logger.error("[%s]元素不能识别,原因是: %s" % (element_info['element_name'], e.__str__()))
-            self.screenshot_as_file()
+            self.screenshot_as_report()
 
         # finally:
         #     if element is None:
@@ -256,12 +256,20 @@ class BasePage:
             logger.error("[%s]元素不能识别,原因是: %s" % (url, e.__str__()))
             self.screenshot_as_file()
 
-    def screenshot_as_file_cn(self):
-        report_path = os.path.join(os.path.abspath(os.path.dirname(__file__)), '..', local_config.report_path)
-        report_dir = HTMLTestReportCN.ReportDirectory(report_path)
-        report_dir.get_screenshot(self.driver)
+    def screenshot_as_file(self):
+        """
+        提供给测试报告截图的方法
+        调用HTMLTestReportCN.py 的截图方法
+        """
+        try:
+            report_path = os.path.join(os.path.abspath(os.path.dirname(__file__)), '..', local_config.report_path)
+            report_dir = HTMLTestReportCN.ReportDirectory(report_path)
+            report_dir.get_screenshot(self.driver)
+            logger.info("正在给你拍照,你别着急呀~")
+        except Exception as e:
+            logger.error("截图失败,原因是: %s" % e.__str__())
 
-    def screenshot_as_file(self, *screenshot_path):
+    def screenshot_as_file_old(self, *screenshot_path):
         """
         :param screenshot_path:  *screenshot_path 元祖类型不定长参数，不带参数为0 默认存放在当前路径
         """

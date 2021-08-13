@@ -37,7 +37,7 @@ class LoginTest(SeleniumBaseCase):
         self._testMethodDoc = test_data['test_name']
         login_action = LoginAction(self.base_page.driver)
         actual_result = login_action.login_fail(test_data['test_parameter'].get('username'),
-                                               test_data['test_parameter'].get('password'))
+                                                test_data['test_parameter'].get('password'))
         print("actual_result: %s" % actual_result)
         self.assertEqual(actual_result, test_data['excepted_result'], 'test_login_fail,执行失败')
 
