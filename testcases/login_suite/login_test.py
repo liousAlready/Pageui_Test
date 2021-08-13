@@ -15,17 +15,20 @@ class LoginTest(SeleniumBaseCase):
     三层继承关系 LoginTest --> SeleniumBaseCase --> unittest.TestCase
     """
 
+    test_class_data = TestDataUtils("login_suite", "LoginTest").convert_excel_data_test_data()
+
     def setUp(self) -> None:
         """
         自定义内容需要先调取父类的setup才能够自定义
         """
         super().setUp()
-        print("---hello---")
-        self.test_class_data = TestDataUtils("login_suite", "LoginTest").convert_excel_data_test_data()
+        # self.test_class_data = TestDataUtils("login_suite", "LoginTest").convert_excel_data_test_data()
 
+    @unittest.skipIf(test_class_data['test_login_success']['is_not'], '')
     def test_login_success(self):
         test_data = self.test_class_data['test_login_success']
         self._testMethodDoc = test_data['test_name']
+
         login_action = LoginAction(self.base_page.driver)
         main_page = login_action.login_success(test_data['test_parameter'].get('username'),
                                                test_data['test_parameter'].get('password'))
