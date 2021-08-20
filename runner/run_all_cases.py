@@ -18,7 +18,7 @@ class RunAllCases:
     def __init__(self):
         self.test_case_path = case_path
         self.report_path = report_path
-        self.title = "盛杰--运营后台测试UI测试报告"
+        self.title = "禅道-测试报告"
         self.description = "UI-test"
 
     def run(self):
@@ -26,7 +26,7 @@ class RunAllCases:
                                                        pattern='*_test.py',
                                                        top_level_dir=self.test_case_path)
         all_suite = unittest.TestSuite()
-        all_suite.addTests(discover)
+        all_suite.addTest(discover)
 
         report_dir = HTMLTestReportCN.ReportDirectory(self.report_path)
         report_dir.create_dir(self.title)

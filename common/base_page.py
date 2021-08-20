@@ -62,6 +62,11 @@ class BasePage:
         logger.info("获取文本信息：%s" % element)
         return element.text
 
+    def get_page_source(self):
+        text = self.driver.page_source
+        logger.info("获取页面远吗")
+        return text
+
     def back_up(self):
         self.driver.back()
         logger.info("返回上一页...")
@@ -122,7 +127,7 @@ class BasePage:
             logger.info('[%s]元素识别成功' % element_info['element_name'])
         except Exception as e:
             logger.error("[%s]元素不能识别,原因是: %s" % (element_info['element_name'], e.__str__()))
-            self.screenshot_as_report()
+            self.screenshot_as_file()
 
         # finally:
         #     if element is None:
@@ -319,6 +324,15 @@ class BasePage:
         elif 'element' in element_dict.keys():
             element = self.find_element(element_dict['element'])
             self.driver.switch_to.frame(element)
+
+    def switch_to_default(self):
+        try:
+            self.wait(1)
+            self.driver.switch_to.default_content()
+            logger.info("调回原来框架")
+        except Exception as e:
+            logger.error("切换框架失败，原因是：%s" % e)
+            self.screenshot_as_file()
 
     # 鼠标键盘封装( 判断操作系统类型)
     def move_mouse_right_click(self, element_info):
