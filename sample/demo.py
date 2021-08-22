@@ -8,9 +8,15 @@
 import sys
 import platform
 
+from selenium import webdriver
+
 print(sys.platform)
 
 # macOS 的是 darwin
 
 
 print(platform.system())
+
+driver = webdriver.Chrome()
+
+text = driver.page_source

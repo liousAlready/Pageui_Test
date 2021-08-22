@@ -1,0 +1,111 @@
+[2021-08-18 16:03:49,612] selenium_base_case.py->setUpClass line:18 [INFO] : 
+[2021-08-18 16:03:49,613] selenium_base_case.py->setUpClass line:19 [INFO] : ==============测试类开始执行==============
+[2021-08-18 16:03:49,614] selenium_base_case.py->setUp line:23 [INFO] : -----------测试开始执行-----------
+[2021-08-18 16:03:49,614] browser.py->get_driver line:34 [INFO] : 当前正在打开：chrome
+[2021-08-18 16:03:52,151] browser.py->__get_chrome_driver line:58 [INFO] : 初始化Google浏览器并启动
+[2021-08-18 16:03:52,361] base_page.py->set_window_max line:49 [INFO] : 浏览器最大化...
+[2021-08-18 16:03:52,363] base_page.py->implicitly_wait line:90 [INFO] : 隐式等待个 5.0 秒
+[2021-08-18 16:03:56,616] base_page.py->open_url line:35 [INFO] : 打开url：http://47.107.178.45/zentao/www/index.php?m=user&f=login&referer=L3plbnRhby93d3cvaW5kZXgucGhwP209dXNlciZmPWxvZ2lueg==
+[2021-08-18 16:03:56,764] login_page.py->input_username line:31 [INFO] : 输入账号: test01
+[2021-08-18 16:03:56,787] base_page.py->find_element line:122 [INFO] : [用户名输入框]元素识别成功
+[2021-08-18 16:03:56,850] base_page.py->input line:143 [INFO] : 输入框输入内容：test01 , 识别输入框：account
+[2021-08-18 16:03:56,850] login_page.py->input_password line:35 [INFO] : 输入密码: newdream
+[2021-08-18 16:03:56,864] base_page.py->find_element line:122 [INFO] : [密码输入框]元素识别成功
+[2021-08-18 16:03:56,986] base_page.py->input line:143 [INFO] : 输入框输入内容：newdream , 识别输入框：password
+[2021-08-18 16:03:56,987] login_page.py->click_login line:39 [INFO] : 点击登录按钮
+[2021-08-18 16:03:57,002] base_page.py->find_element line:122 [INFO] : [登录按钮]元素识别成功
+[2021-08-18 16:03:57,070] base_page.py->click line:156 [INFO] : 识别元素进行点击操作：submit
+[2021-08-18 16:03:58,586] base_page.py->wait line:81 [INFO] : 休息一会儿 1 秒钟~
+[2021-08-18 16:03:58,734] base_page.py->close_browser line:41 [INFO] : 关闭当前tab页签
+[2021-08-18 16:03:58,734] selenium_base_case.py->tearDown line:38 [INFO] : -----------测试方法执行完毕-----------
+[2021-08-18 16:03:58,735] selenium_base_case.py->setUp line:23 [INFO] : -----------测试开始执行-----------
+[2021-08-18 16:03:58,736] browser.py->get_driver line:34 [INFO] : 当前正在打开：chrome
+[2021-08-18 16:04:01,027] browser.py->__get_chrome_driver line:58 [INFO] : 初始化Google浏览器并启动
+[2021-08-18 16:04:01,218] base_page.py->set_window_max line:49 [INFO] : 浏览器最大化...
+[2021-08-18 16:04:01,236] base_page.py->implicitly_wait line:90 [INFO] : 隐式等待个 5.0 秒
+[2021-08-18 16:12:03,371] selenium_base_case.py->setUpClass line:18 [INFO] : 
+[2021-08-18 16:12:03,373] selenium_base_case.py->setUpClass line:19 [INFO] : ==============测试类开始执行==============
+[2021-08-18 16:12:03,373] selenium_base_case.py->setUp line:23 [INFO] : -----------测试开始执行-----------
+[2021-08-18 16:12:03,374] browser.py->get_driver line:34 [INFO] : 当前正在打开：chrome
+[2021-08-18 16:12:05,144] browser.py->__get_chrome_driver line:58 [INFO] : 初始化Google浏览器并启动
+[2021-08-18 16:12:05,421] base_page.py->set_window_max line:49 [INFO] : 浏览器最大化...
+[2021-08-18 16:12:05,425] base_page.py->implicitly_wait line:90 [INFO] : 隐式等待个 5.0 秒
+[2021-08-18 16:12:06,610] base_page.py->open_url line:35 [INFO] : 打开url：http://47.107.178.45/zentao/www/index.php?m=user&f=login&referer=L3plbnRhby93d3cvaW5kZXgucGhwP209dXNlciZmPWxvZ2lueg==
+[2021-08-18 16:18:06,177] selenium_base_case.py->setUpClass line:18 [INFO] : 
+[2021-08-18 16:18:06,178] selenium_base_case.py->setUpClass line:19 [INFO] : ==============测试类开始执行==============
+[2021-08-18 16:18:06,178] selenium_base_case.py->setUp line:23 [INFO] : -----------测试开始执行-----------
+[2021-08-18 16:18:06,179] browser.py->get_driver line:34 [INFO] : 当前正在打开：chrome
+[2021-08-18 16:18:08,190] browser.py->__get_chrome_driver line:58 [INFO] : 初始化Google浏览器并启动
+[2021-08-18 16:18:08,332] base_page.py->set_window_max line:49 [INFO] : 浏览器最大化...
+[2021-08-18 16:18:08,334] base_page.py->implicitly_wait line:90 [INFO] : 隐式等待个 5.0 秒
+[2021-08-18 16:18:09,872] base_page.py->open_url line:35 [INFO] : 打开url：http://47.107.178.45/zentao/www/index.php?m=user&f=login&referer=L3plbnRhby93d3cvaW5kZXgucGhwP209dXNlciZmPWxvZ2lueg==
+[2021-08-18 16:18:10,302] login_page.py->input_username line:31 [INFO] : 输入账号: test01
+[2021-08-18 16:18:10,306] base_page.py->find_element line:124 [ERROR] : [用户名输入框]元素不能识别,原因是: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=92.0.4515.131)
+Stacktrace:
+Backtrace:
+	Ordinal0 [0x01152DB3+2502067]
+	Ordinal0 [0x010EC5B1+2082225]
+	Ordinal0 [0x00FF2498+1057944]
+	Ordinal0 [0x00FDBDD6+966102]
+	Ordinal0 [0x010379F9+1341945]
+	Ordinal0 [0x01044232+1393202]
+	Ordinal0 [0x01035BEB+1334251]
+	Ordinal0 [0x01012174+1188212]
+	Ordinal0 [0x01013009+1191945]
+	GetHandleVerifier [0x012CEC5C+1511084]
+	GetHandleVerifier [0x01378522+2205554]
+	GetHandleVerifier [0x011D3393+480739]
+	GetHandleVerifier [0x011D2579+477129]
+	Ordinal0 [0x010F1E5D+2104925]
+	Ordinal0 [0x010F63F8+2122744]
+	Ordinal0 [0x010F6537+2123063]
+	Ordinal0 [0x010FEE53+2158163]
+	BaseThreadInitThunk [0x7697FA29+25]
+	RtlGetAppContainerNamedObjectPath [0x77007A7E+286]
+	RtlGetAppContainerNamedObjectPath [0x77007A4E+238]
+
+[2021-08-18 16:28:27,139] selenium_base_case.py->setUpClass line:18 [INFO] : 
+[2021-08-18 16:28:27,141] selenium_base_case.py->setUpClass line:19 [INFO] : ==============测试类开始执行==============
+[2021-08-18 16:28:27,142] selenium_base_case.py->setUp line:23 [INFO] : -----------测试开始执行-----------
+[2021-08-18 16:28:27,145] browser.py->get_driver line:34 [INFO] : 当前正在打开：chrome
+[2021-08-18 16:28:29,390] browser.py->__get_chrome_driver line:58 [INFO] : 初始化Google浏览器并启动
+[2021-08-18 16:28:29,536] base_page.py->set_window_max line:49 [INFO] : 浏览器最大化...
+[2021-08-18 16:28:29,539] base_page.py->implicitly_wait line:90 [INFO] : 隐式等待个 5.0 秒
+[2021-08-18 16:28:33,986] base_page.py->open_url line:35 [INFO] : 打开url：http://47.107.178.45/zentao/www/index.php?m=user&f=login&referer=L3plbnRhby93d3cvaW5kZXgucGhwP209dXNlciZmPWxvZ2lueg==
+[2021-08-18 16:28:34,656] login_page.py->input_username line:31 [INFO] : 输入账号: test01
+[2021-08-18 16:28:34,676] base_page.py->find_element line:122 [INFO] : [用户名输入框]元素识别成功
+[2021-08-18 16:28:34,759] base_page.py->input line:143 [INFO] : 输入框输入内容：test01 , 识别输入框：account
+[2021-08-18 16:28:34,760] login_page.py->input_password line:35 [INFO] : 输入密码: newdream
+[2021-08-18 16:28:34,784] base_page.py->find_element line:122 [INFO] : [密码输入框]元素识别成功
+[2021-08-18 16:28:34,969] base_page.py->input line:143 [INFO] : 输入框输入内容：newdream , 识别输入框：password
+[2021-08-18 16:28:34,970] login_page.py->click_login line:39 [INFO] : 点击登录按钮
+[2021-08-18 16:28:34,997] base_page.py->find_element line:122 [INFO] : [登录按钮]元素识别成功
+[2021-08-18 16:28:35,088] base_page.py->click line:156 [INFO] : 识别元素进行点击操作：submit
+[2021-08-18 16:28:36,643] base_page.py->wait line:81 [INFO] : 休息一会儿 1 秒钟~
+[2021-08-18 16:31:30,122] selenium_base_case.py->setUpClass line:18 [INFO] : 
+[2021-08-18 16:31:30,123] selenium_base_case.py->setUpClass line:19 [INFO] : ==============测试类开始执行==============
+[2021-08-18 16:31:30,123] selenium_base_case.py->setUp line:23 [INFO] : -----------测试开始执行-----------
+[2021-08-18 16:31:30,123] browser.py->get_driver line:34 [INFO] : 当前正在打开：chrome
+[2021-08-18 16:31:32,159] browser.py->__get_chrome_driver line:58 [INFO] : 初始化Google浏览器并启动
+[2021-08-18 16:31:32,296] base_page.py->set_window_max line:49 [INFO] : 浏览器最大化...
+[2021-08-18 16:31:32,300] base_page.py->implicitly_wait line:90 [INFO] : 隐式等待个 5.0 秒
+[2021-08-18 17:03:20,536] selenium_base_case.py->setUpClass line:18 [INFO] : 
+[2021-08-18 17:03:20,537] selenium_base_case.py->setUpClass line:19 [INFO] : ==============测试类开始执行==============
+[2021-08-18 17:03:20,537] selenium_base_case.py->setUp line:23 [INFO] : -----------测试开始执行-----------
+[2021-08-18 17:03:20,537] browser.py->get_driver line:34 [INFO] : 当前正在打开：chrome
+[2021-08-18 17:03:22,450] browser.py->__get_chrome_driver line:58 [INFO] : 初始化Google浏览器并启动
+[2021-08-18 17:03:22,591] base_page.py->set_window_max line:49 [INFO] : 浏览器最大化...
+[2021-08-18 17:03:22,594] base_page.py->implicitly_wait line:90 [INFO] : 隐式等待个 5.0 秒
+[2021-08-18 17:03:26,777] base_page.py->open_url line:35 [INFO] : 打开url：http://47.107.178.45/zentao/www/index.php?m=user&f=login&referer=L3plbnRhby93d3cvaW5kZXgucGhwP209dXNlciZmPWxvZ2lueg==
+[2021-08-18 17:03:26,947] login_page.py->input_username line:31 [INFO] : 输入账号: test01
+[2021-08-18 17:03:26,966] base_page.py->find_element line:122 [INFO] : [用户名输入框]元素识别成功
+[2021-08-18 17:03:27,035] base_page.py->input line:143 [INFO] : 输入框输入内容：test01 , 识别输入框：account
+[2021-08-18 17:03:27,035] login_page.py->input_password line:35 [INFO] : 输入密码: newdream
+[2021-08-18 17:03:27,048] base_page.py->find_element line:122 [INFO] : [密码输入框]元素识别成功
+[2021-08-18 17:03:27,169] base_page.py->input line:143 [INFO] : 输入框输入内容：newdream , 识别输入框：password
+[2021-08-18 17:03:27,169] login_page.py->click_login line:39 [INFO] : 点击登录按钮
+[2021-08-18 17:03:27,192] base_page.py->find_element line:122 [INFO] : [登录按钮]元素识别成功
+[2021-08-18 17:03:27,264] base_page.py->click line:156 [INFO] : 识别元素进行点击操作：submit
+[2021-08-18 17:03:28,799] base_page.py->wait line:81 [INFO] : 休息一会儿 1 秒钟~

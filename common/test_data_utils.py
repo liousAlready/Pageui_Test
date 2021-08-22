@@ -26,7 +26,7 @@ class TestDataUtils:
             test_data_info = {}  # 数据分层
             if self.excel_data[row][2].__eq__(self.test_class_name):  # 判断传入的测试类是否与excel中数据一致
                 test_data_info["test_name"] = self.excel_data[row][1]  # 取出测试名称
-                test_data_info["is_not"] = self.excel_data[row][3]  # 取出是否执行
+                test_data_info["is_not"] = False if self.excel_data[row][3].__eq__('是') else True  # 取出是否执行
                 test_data_info["excepted_result"] = self.excel_data[row][4]  # 取出期望结果
                 test_parameter = {}  # 测试数据需要用字典来读取
                 for case_data in range(5, len(self.excel_data[row])):  # 从第六个参数开始进行判断 因为测试数据可能有多个

@@ -62,6 +62,11 @@ class BasePage:
         logger.info("获取文本信息：%s" % element)
         return element.text
 
+    def get_page_source(self):
+        text = self.driver.page_source
+        logger.info("获取页面远吗")
+        return text
+
     def back_up(self):
         self.driver.back()
         logger.info("返回上一页...")
@@ -256,12 +261,20 @@ class BasePage:
             logger.error("[%s]元素不能识别,原因是: %s" % (url, e.__str__()))
             self.screenshot_as_file()
 
-    def screenshot_as_file_cn(self):
-        report_path = os.path.join(os.path.abspath(os.path.dirname(__file__)), '..', local_config.report_path)
-        report_dir = HTMLTestReportCN.ReportDirectory(report_path)
-        report_dir.get_screenshot(self.driver)
+    def screenshot_as_file(self):
+        """
+        提供给测试报告截图的方法
+        调用HTMLTestReportCN.py 的截图方法
+        """
+        try:
+            report_path = os.path.join(os.path.abspath(os.path.dirname(__file__)), '..', local_config.report_path)
+            report_dir = HTMLTestReportCN.ReportDirectory(report_path)
+            report_dir.get_screenshot(self.driver)
+            logger.info("正在给你拍照,你别着急呀~")
+        except Exception as e:
+            logger.error("截图失败,原因是: %s" % e.__str__())
 
-    def screenshot_as_file(self, *screenshot_path):
+    def screenshot_as_file_old(self, *screenshot_path):
         """
         :param screenshot_path:  *screenshot_path 元祖类型不定长参数，不带参数为0 默认存放在当前路径
         """
@@ -311,6 +324,15 @@ class BasePage:
         elif 'element' in element_dict.keys():
             element = self.find_element(element_dict['element'])
             self.driver.switch_to.frame(element)
+
+    def switch_to_default(self):
+        try:
+            self.wait(1)
+            self.driver.switch_to.default_content()
+            logger.info("调回原来框架")
+        except Exception as e:
+            logger.error("切换框架失败，原因是：%s" % e)
+            self.screenshot_as_file()
 
     # 鼠标键盘封装( 判断操作系统类型)
     def move_mouse_right_click(self, element_info):
