@@ -1,0 +1,7 @@
+[2021-08-05 20:23:12,368] selenium_base_case.py->setUpClass line:18 [INFO] : 
+[2021-08-05 20:23:12,368] selenium_base_case.py->setUpClass line:19 [INFO] : ==============测试类开始执行==============
+[2021-08-05 20:23:12,372] selenium_base_case.py->setUp line:23 [INFO] : -----------测试开始执行-----------
+[2021-08-05 20:23:12,373] browser.py->get_driver line:32 [INFO] : 当前正在打开：firefox
+[2021-08-05 20:23:12,392] selenium_base_case.py->setUp line:23 [INFO] : -----------测试开始执行-----------
+[2021-08-05 20:23:12,392] browser.py->get_driver line:32 [INFO] : 当前正在打开：firefox
+[2021-08-05 20:23:12,400] selenium_base_case.py->tearDownClass line:37 [INFO] : ==============测试类执行完毕==============
