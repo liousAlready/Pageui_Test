@@ -13,14 +13,23 @@ from email.mime.text import MIMEText
 
 
 class EmailUtils:
-    def __init__(self, smtp_body, smtp_file_path=None):
-        self.smtp_server = local_config.smtp_server
-        self.smtp_sender = local_config.smtp_sender
-        self.smtp_sender_password = local_config.smtp_password
-        self.smtp_receiver = local_config.smtp_receiver
-        self.smtp_cc = local_config.smtp_cc
-        self.smtp_subject = local_config.smtp_subject
-        self.smtp_body = smtp_body
+    def __init__(self, smtp_subject, smtp_body, smtp_file_path=None):
+        # self.smtp_server = local_config.smtp_server
+        # self.smtp_sender = local_config.smtp_sender
+        # self.smtp_sender_password = local_config.smtp_password
+        # self.smtp_receiver = local_config.smtp_receiver
+        # self.smtp_cc = local_config.smtp_cc
+        # self.smtp_subject = local_config.smtp_subject
+        # self.smtp_body = smtp_body
+        # self.smtp_file = smtp_file_path
+        self.smtp_server = 'smtp.qq.com'  # 邮件服务器地址
+        self.smtp_sender = '1650503480@qq.com'  # 邮箱名
+        self.smtp_sender_password = "tnmwuuycifiedcah"  # 授权码
+
+        self.smtp_receiver = '1650503480@qq.com'  # 收件人
+        self.smtp_cc = '1695403591@qq.com'  # 抄送人
+        self.smtp_subject = smtp_subject  # 邮件主题
+        self.smtp_body = smtp_body  # 邮件正文
         self.smtp_file = smtp_file_path
 
     def mail_content(self):
@@ -64,15 +73,14 @@ class EmailUtils:
         msg['subject'] = self.smtp_subject
         return msg
 
-
     def send_mail(self):
         try:
             smtp = smtplib.SMTP()
             smtp.connect(self.smtp_server)
-            smtp.login(user=self.smtp_sender, password=self.smtp_senderpassword)
+            smtp.login(user=self.smtp_sender, password=self.smtp_sender_password)
         except:
             smtp = smtplib.SMTP_SSL()
-            smtp.login(user=self.smtp_sender, password=self.smtp_senderpassword)
+            smtp.login(user=self.smtp_sender, password=self.smtp_sender_password)
         mail_content = self.mail_content()
         try:
             smtp.sendmail(self.smtp_sender, self.smtp_receiver.split(',') + self.smtp_cc.split(','),
@@ -85,10 +93,10 @@ class EmailUtils:
         try:
             smtp = smtplib.SMTP()
             smtp.connect(self.smtp_server)
-            smtp.login(user=self.smtp_sender, password=self.smtp_senderpassword)
+            smtp.login(user=self.smtp_sender, password=self.smtp_sender_password)
         except:
             smtp = smtplib.SMTP_SSL()
-            smtp.login(user=self.smtp_sender, password=self.smtp_senderpassword)
+            smtp.login(user=self.smtp_sender, password=self.smtp_sender_password)
         mail_content = self.mail_content_by_zip()
         try:
             smtp.sendmail(self.smtp_sender, self.smtp_receiver.split(',') + self.smtp_cc.split(','),

@@ -23,6 +23,6 @@ def zip_dir(dir_path, zip_path):
 
 
 current_path = os.path.abspath(os.path.dirname(__file__))
-dri_path = os.path.join(current_path, '..', 'reports/禅道自动化测试报告V1.0')
+dri_path = os.path.join(current_path, '..', 'reports/禅道-测试报告V1.0')
 
 zip_dir(dri_path, dri_path + '/../禅道自动化测试报告.zip')
