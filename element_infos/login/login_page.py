@@ -9,10 +9,10 @@ import os
 import time
 from common.log_utils import logger
 from common.base_page import *
-from common.element_data_utils import *
+# from common.element_data_utils import ElementDataUtils
+from common.element_data_utils_02 import ElementDataUtils
 from common.browser import *
 from common.base_page import *
-from common.excel_utils import ExcelUtils
 
 
 #  页面是类  控件：属性 控件操作：方法
@@ -22,12 +22,15 @@ class LoginPage(BasePage):  # 继承页面类
     def __init__(self, driver):
         super().__init__(driver)
 
-        elements = ElementDataUtils("login").get_element_data("login_page")
+        # elements = ElementDataUtils("login").get_element_data("login_page")
+        elements = ElementDataUtils("login", "login_page").get_element_info()
+
         self.username_input_box = elements["username_inputbox"]
         self.password_input_box = elements["password_inputbox"]
         self.submit = elements["login_button"]
 
     def input_username(self, username):  # 方法 --》 控件的操作
+        self.wait(1)
         logger.info("输入账号: %s" % username)
         self.input(self.username_input_box, username)
 

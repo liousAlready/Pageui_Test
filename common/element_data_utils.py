@@ -19,6 +19,7 @@ class ElementDataUtils(ExcelUtils):
     封装实现业务的读取类
 
     """
+
     def __init__(self, module_name, path=excel_path):
         super(ElementDataUtils, self).__init__(module_name, path)
 
@@ -40,7 +41,7 @@ class ElementDataUtils(ExcelUtils):
 
 
 if __name__ == "__main__":
-    info = ElementDataUtils("main").get_element_data("main_page")
+    info = ElementDataUtils("login").get_element_data("login_page")
     # print(info)
     for e in info.values():
         print(e)

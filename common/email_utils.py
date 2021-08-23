@@ -10,27 +10,29 @@ from email import encoders
 from email.mime.base import MIMEBase
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+from common.config_utils import local_config
+from common import zip_utils
 
 
 class EmailUtils:
-    def __init__(self, smtp_subject, smtp_body, smtp_file_path=None):
-        # self.smtp_server = local_config.smtp_server
-        # self.smtp_sender = local_config.smtp_sender
-        # self.smtp_sender_password = local_config.smtp_password
-        # self.smtp_receiver = local_config.smtp_receiver
-        # self.smtp_cc = local_config.smtp_cc
-        # self.smtp_subject = local_config.smtp_subject
-        # self.smtp_body = smtp_body
-        # self.smtp_file = smtp_file_path
-        self.smtp_server = 'smtp.qq.com'  # 邮件服务器地址
-        self.smtp_sender = '1650503480@qq.com'  # 邮箱名
-        self.smtp_sender_password = "tnmwuuycifiedcah"  # 授权码
-
-        self.smtp_receiver = '1650503480@qq.com'  # 收件人
-        self.smtp_cc = '1695403591@qq.com'  # 抄送人
-        self.smtp_subject = smtp_subject  # 邮件主题
-        self.smtp_body = smtp_body  # 邮件正文
+    def __init__(self, smtp_body, smtp_file_path=None):
+        self.smtp_server = local_config.smtp_server
+        self.smtp_sender = local_config.smtp_sender
+        self.smtp_sender_password = local_config.smtp_sender_password
+        self.smtp_receiver = local_config.smtp_receiver
+        self.smtp_cc = local_config.smtp_cc
+        self.smtp_subject = local_config.smtp_subject
+        self.smtp_body = smtp_body
         self.smtp_file = smtp_file_path
+
+        # self.smtp_server = 'smtp.qq.com'  # 邮件服务器地址
+        # self.smtp_sender = '1650503480@qq.com'  # 邮箱名
+        # self.smtp_sender_password = "tnmwuuycifiedcah"  # 授权码
+        # self.smtp_receiver = '1650503480@qq.com'  # 收件人
+        # self.smtp_cc = '1695403591@qq.com'  # 抄送人
+        # self.smtp_subject = smtp_subject  # 邮件主题
+        # self.smtp_body = smtp_body  # 邮件正文
+        # self.smtp_file = smtp_file_path
 
     def mail_content(self):
         if self.smtp_file != None:
