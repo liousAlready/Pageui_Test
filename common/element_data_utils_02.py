@@ -49,6 +49,6 @@ class ElementDataUtils:
 
 
 if __name__ == "__main__":
-    info = ElementDataUtils("login", 'login_page').get_element_infos()
+    info = ElementDataUtils("main", 'main_page').get_element_infos()
     for i in info.items():
         print(i)

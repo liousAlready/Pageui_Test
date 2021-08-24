@@ -135,4 +135,4 @@ if __name__ == "__main__":
     print(local_config.smtp_subject)
     print(local_config.smtp_receiver)
     print(local_config.smtp_sender)
-    print(local_config.test_data_path)
+    print(local_config.element_info_path)

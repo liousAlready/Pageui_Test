@@ -11,6 +11,7 @@ from common.excel_utils_new import ExcelUtils
 
 current = os.path.dirname(__file__)
 test_data_path = os.path.join(current, '..', local_config.test_data_paths)
+print(test_data_path)
 
 
 class TestDataUtils:
@@ -41,6 +42,6 @@ class TestDataUtils:
 
 
 if __name__ == "__main__":
-    information = TestDataUtils("login_suite",  "login_test").convert_excel_data_test_data()
+    information = TestDataUtils("main_suite",  "main_test").convert_excel_data_test_data()
     for i in information.values():
         print(i)
