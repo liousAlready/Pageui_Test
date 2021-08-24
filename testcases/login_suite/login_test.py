@@ -15,7 +15,7 @@ class LoginTest(SeleniumBaseCase):
     三层继承关系 LoginTest --> SeleniumBaseCase --> unittest.TestCase
     """
 
-    test_class_data = TestDataUtils("login_suite", "LoginTest").convert_excel_data_test_data()
+    test_class_data = TestDataUtils("login_suite", "login_test").convert_excel_data_test_data()
 
     def setUp(self) -> None:
         """
@@ -25,7 +25,7 @@ class LoginTest(SeleniumBaseCase):
         # self.test_class_data = TestDataUtils("login_suite", "LoginTest").convert_excel_data_test_data()
 
     @unittest.skipIf(test_class_data['test_login_success']['is_not'], '')
-    def test_login_success(self):
+    def test_A001_login_success(self):
         test_data = self.test_class_data['test_login_success']
         self._testMethodDoc = test_data['test_name']
 
@@ -35,13 +35,12 @@ class LoginTest(SeleniumBaseCase):
         actual_result = main_page.get_username()
         self.assertEqual(actual_result, test_data['excepted_result'], 'test_login_success,执行失败')
 
-    def test_login_fail(self):
+    def test_A002_login_fail(self):
         test_data = self.test_class_data['test_login_fail']
         self._testMethodDoc = test_data['test_name']
         login_action = LoginAction(self.base_page.driver)
         actual_result = login_action.login_fail(test_data['test_parameter'].get('username'),
                                                 test_data['test_parameter'].get('password'))
-        print("actual_result: %s" % actual_result)
         self.assertEqual(actual_result, test_data['excepted_result'], 'test_login_fail,执行失败')
 
 

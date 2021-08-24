@@ -25,7 +25,7 @@ class RunAllCases:
 
     def run(self):
         discover = unittest.defaultTestLoader.discover(start_dir=self.test_case_path,
-                                                       pattern='*_tests.py',
+                                                       pattern='*_test.py',
                                                        top_level_dir=self.test_case_path)
         all_suite = unittest.TestSuite()
         all_suite.addTest(discover)

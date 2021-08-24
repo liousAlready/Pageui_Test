@@ -9,12 +9,14 @@ from common.base_page import BasePage
 from common.browser import Browser
 from common.config_utils import local_config
 from common.log_utils import logger
+import warnings
 
 
 class SeleniumBaseCase(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls) -> None:
+        warnings.simplefilter('ignore', ResourceWarning)
         logger.info("")
         logger.info("==============测试类开始执行==============")
         cls.url = local_config.get_url

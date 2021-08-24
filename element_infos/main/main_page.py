@@ -6,7 +6,7 @@
 # @Software: PyCharm
 
 import os
-from common.element_data_utils import ElementDataUtils
+from common.element_data_utils_02 import ElementDataUtils
 from common.base_page import BasePage
 from common.browser import Browser
 from common.config_utils import local_config
@@ -18,7 +18,9 @@ from common.config_utils import local_config
 class MainPage(BasePage):
     def __init__(self, driver):
         super().__init__(driver)
-        elements = ElementDataUtils('main').get_element_data('main_page')
+        elements = ElementDataUtils("main", "main_page").get_element_infos()
+
+        # elements = ElementDataUtils('main').get_element_data('main_page')
         self.myzone_link = elements['myzone_link']
         self.user_menu = elements['user_menu']
         self.quit_button = elements['quit_button']
@@ -28,6 +30,7 @@ class MainPage(BasePage):
 
     def get_username(self):
         value = self.get_text(self.user_menu)
+        self.wait(2)
         return value
 
     def click_username(self):

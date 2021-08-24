@@ -93,6 +93,11 @@ class ConfigUtils:
         return test_path
 
     @property
+    def test_data_paths(self):
+        test_data_paths = self.cfg.get("TEST", "test_data_paths")
+        return test_data_paths
+
+    @property
     def smtp_server(self):
         smtp_server = self.cfg.get("email", "smtp_server")
         return smtp_server
@@ -126,7 +131,7 @@ class ConfigUtils:
 local_config = ConfigUtils()
 
 if __name__ == "__main__":
-    print(local_config.smtp_cc)
+    print(local_config.time_out)
     print(local_config.smtp_subject)
     print(local_config.smtp_receiver)
     print(local_config.smtp_sender)
